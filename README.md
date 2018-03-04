@@ -11,7 +11,12 @@ Requirements:
 
 ## Authors:
 Gerardo Cervantes
+
 Daniel Ornelas
+
 Isaac Hoffmann
+
 Oliver Martinez
+
 Christopher Soto
+
