@@ -40,9 +40,6 @@ class Application(tk.Frame):
         name_frame, self.name_entry = self.create_frame_with_entry(main_window, "Project")
         desc_frame, self.desc_entry = self.create_frame_with_entry(main_window, "Description")
         
-        self.name_frame = name_frame
-        self.desc_frame = desc_frame
-        
         buttons_frame = tk.Frame(main_window)
         project_label = tk.Label(main_window, text= "Create a new project")
         
@@ -51,11 +48,11 @@ class Application(tk.Frame):
         desc_frame.grid(row = 2, column = 0)
         buttons_frame.grid(row = 3, column = 0)
     
-        self.create_button = tk.Button(buttons_frame, text = "Create", command = self.create_button_clicked)
-        self.cancel_button = tk.Button(buttons_frame, text = "Cancel", command = self.cancel_button_clicked)
+        create_button = tk.Button(buttons_frame, text = "Create", command = self.create_button_clicked)
+        cancel_button = tk.Button(buttons_frame, text = "Cancel", command = self.cancel_button_clicked)
         
-        self.create_button.pack(side="left")
-        self.cancel_button.pack(side="right")
+        create_button.pack(side="left")
+        cancel_button.pack(side="right")
         
     def create_button_clicked(self):
         
