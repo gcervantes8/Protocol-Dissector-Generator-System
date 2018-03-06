@@ -3,9 +3,13 @@
 Created on Fri Mar  2 13:29:57 2018
 
 @author: Gerardo Cervantes
+         Oliver Martinez
+         Isaac Hoffman
+         Daniel Ornelas
+         Christopher Soto
 """
 
-import tkinter as tk
+import Tkinter as tk
 
 
 class Application(tk.Frame):
@@ -27,7 +31,7 @@ class Application(tk.Frame):
         
         self.root = master
         self.root.title("New Project")
-        super().__init__(master)
+        tk.Frame.__init__(self)
         self.pack()
         self.create_widgets()
 
