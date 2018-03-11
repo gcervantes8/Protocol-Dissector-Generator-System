@@ -1,3 +1,4 @@
+#! python2
 # -*- coding: utf-8 -*-
 """
 Created on Fri Mar  2 13:29:57 2018
@@ -16,7 +17,7 @@ class Application(tk.Frame):
     
     #Function create frame with label on left, and entry on the right
     #Returns the frame with label and entry, and returns the entry
-    def create_frame_with_entry(self, parent_frame, label_str):
+    def _create_frame_with_entry(self, parent_frame, label_str):
         main_frame = tk.Frame(parent_frame)
         
         entry = tk.Entry(main_frame)
@@ -30,48 +31,55 @@ class Application(tk.Frame):
     def __init__(self, master=None):
         
         self.root = master
-        self.root.title("New Project")
+        master.title("New Project")
         tk.Frame.__init__(self)
         self.pack()
-        self.create_widgets()
-
-    def create_widgets(self):
+        self._create_widgets()
+    
+    #Adds all the widgets.
+    def _create_widgets(self):
         
+        #Main window
         main_window = tk.Frame(self)
         main_window.pack(side="top")
         
-        
-        name_frame, self.name_entry = self.create_frame_with_entry(main_window, "Project")
-        desc_frame, self.desc_entry = self.create_frame_with_entry(main_window, "Description")
-        
-        buttons_frame = tk.Frame(main_window)
+        #Create Label with text, and add to main_window
         project_label = tk.Label(main_window, text= "Create a new project")
         
+        #Create frame with label and entry, and add to main_window
+        name_frame, self.name_entry = self._create_frame_with_entry(main_window, "Project")
+        desc_frame, self.desc_entry = self._create_frame_with_entry(main_window, "Description")
+        
+        #Create frame and add 2 buttons to it.
+        buttons_frame = tk.Frame(main_window)
+        tk.Button(buttons_frame, text = "Create", command = self._create_button_clicked).pack(side="left")
+        tk.Button(buttons_frame, text = "Cancel", command = self._cancel_button_clicked).pack(side="right")
+        
+        
+        #Specify location of widgets on main window
         project_label.grid(row = 0, column = 0)
         name_frame.grid(row = 1, column = 0)
         desc_frame.grid(row = 2, column = 0)
         buttons_frame.grid(row = 3, column = 0)
     
-        create_button = tk.Button(buttons_frame, text = "Create", command = self.create_button_clicked)
-        cancel_button = tk.Button(buttons_frame, text = "Cancel", command = self.cancel_button_clicked)
+    
+    #Function to be called when create button is clicked
+    def _create_button_clicked(self):
         
-        create_button.pack(side="left")
-        cancel_button.pack(side="right")
-        
-    def create_button_clicked(self):
-        
-        print('Create button click')
+        print('Create button clicked')
         project_name = self.name_entry.get()
         project_desc = self.desc_entry.get()
         
-        print("Project name: " + project_name)
-        print("Project description: " + project_desc)
+        print("Project name: " + project_name + "\n Project description: " + project_desc)
         
-    def cancel_button_clicked(self):
+    #Function to be called when cancel button is clicked
+    def _cancel_button_clicked(self):
         
-        print('Cancel button click')
+        print('Cancel button clicked')
         self.root.destroy()
 
-root = tk.Tk()
-app = Application(master=root)
-app.mainloop()
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = Application(master=root)
+    app.mainloop()
