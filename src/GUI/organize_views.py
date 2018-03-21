@@ -177,6 +177,7 @@ class OrganizeViews():
         confirm_button.grid(row=8, column=2)
         cancel_button.grid(row=8, column=3)
 
+
 if __name__ == "__main__":
     root = Tk()
     app = OrganizeViews(master=root)

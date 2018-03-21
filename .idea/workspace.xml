@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="414096b2-8a84-4f6c-9eef-6d553c48e7c4" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/GUI/organize_views.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/GUI/console_error_view.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/organize_views.py" afterPath="$PROJECT_DIR$/src/GUI/organize_views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,11 +33,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="organize_views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="organize_views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/organize_views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2023">
-              <caret line="119" column="24" lean-forward="true" selection-start-line="119" selection-start-column="24" selection-end-line="119" selection-end-column="24" />
+            <state relative-caret-position="-1225">
+              <caret line="74" column="47" lean-forward="true" selection-start-line="74" selection-start-column="47" selection-end-line="74" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="console_error_view.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GUI/console_error_view.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="237">
+              <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -60,6 +71,7 @@
         <option value="$PROJECT_DIR$/src/GUI/dissected_stream_window.py" />
         <option value="$PROJECT_DIR$/src/GUI/export_project_window.py" />
         <option value="$PROJECT_DIR$/src/GUI/organize_views.py" />
+        <option value="$PROJECT_DIR$/src/GUI/console_error_view.py" />
       </list>
     </option>
   </component>
@@ -70,12 +82,14 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="938" />
-    <option name="y" value="367" />
+    <option name="x" value="814" />
+    <option name="y" value="350" />
     <option name="width" value="1194" />
     <option name="height" value="844" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -140,7 +154,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.organize_views">
+  <component name="RunManager" selected="Python.console_error_view">
     <configuration name="2.7" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -160,6 +174,24 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="console_error_view" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/GUI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Protocol-Dissector-Generator-System" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/GUI/console_error_view.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="export_project_window" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -173,24 +205,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Protocol-Dissector-Generator-System" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/GUI/export_project_window.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="field_window" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/GUI" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Protocol-Dissector-Generator-System" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/GUI/field_window.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -253,18 +267,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.2.7" />
       <item index="1" class="java.lang.String" itemvalue="Python.menu" />
-      <item index="2" class="java.lang.String" itemvalue="Python.field_window" />
-      <item index="3" class="java.lang.String" itemvalue="Python.export_project_window" />
-      <item index="4" class="java.lang.String" itemvalue="Python.import_project_window" />
-      <item index="5" class="java.lang.String" itemvalue="Python.organize_views" />
+      <item index="2" class="java.lang.String" itemvalue="Python.export_project_window" />
+      <item index="3" class="java.lang.String" itemvalue="Python.import_project_window" />
+      <item index="4" class="java.lang.String" itemvalue="Python.organize_views" />
+      <item index="5" class="java.lang.String" itemvalue="Python.console_error_view" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.organize_views" />
-        <item index="1" class="java.lang.String" itemvalue="Python.export_project_window" />
-        <item index="2" class="java.lang.String" itemvalue="Python.import_project_window" />
-        <item index="3" class="java.lang.String" itemvalue="Python.menu" />
-        <item index="4" class="java.lang.String" itemvalue="Python.field_window" />
+        <item index="0" class="java.lang.String" itemvalue="Python.console_error_view" />
+        <item index="1" class="java.lang.String" itemvalue="Python.organize_views" />
+        <item index="2" class="java.lang.String" itemvalue="Python.export_project_window" />
+        <item index="3" class="java.lang.String" itemvalue="Python.import_project_window" />
+        <item index="4" class="java.lang.String" itemvalue="Python.menu" />
       </list>
     </recent_temporary>
   </component>
@@ -296,11 +310,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521669874581</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="finished organize views">
+      <created>1521673199377</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1521673199377</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="938" y="367" width="1194" height="844" extended-state="0" />
+    <frame x="814" y="350" width="1194" height="844" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2915225" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -334,7 +355,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="working on my parts" />
     <MESSAGE value="finished project export" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished project export" />
+    <MESSAGE value="finished organize views" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished organize views" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -455,8 +477,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/organize_views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2023">
-          <caret line="119" column="24" lean-forward="true" selection-start-line="119" selection-start-column="24" selection-end-line="119" selection-end-column="24" />
+        <state relative-caret-position="-1225">
+          <caret line="74" column="47" lean-forward="true" selection-start-line="74" selection-start-column="47" selection-end-line="74" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/console_error_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
           <folding />
         </state>
       </provider>
