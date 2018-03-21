@@ -11,7 +11,7 @@ Created on Fri Mar  2 13:29:57 2018
 
 import Tkinter as tk
 
-class Application(tk.Frame):
+class Import_Project(tk.Frame):
 
     # Function create frame with label on left, and entry on the right
     # Returns the frame with label and entry, and returns the entry
@@ -28,7 +28,7 @@ class Application(tk.Frame):
 
     def __init__(self, master=None):
         self.root = master
-        master.title("PCAP")
+        master.title("Import Project")
         tk.Frame.__init__(self)
         self.pack()
         self._create_widgets()
@@ -46,11 +46,11 @@ class Application(tk.Frame):
         # Create frame with label and entry, and add to main_window
         name_frame, self.name_entry = self._create_frame_with_entry(main_window, "Import project")
         buttons_frame1 = tk.Frame(main_window)
-        tk.Button(buttons_frame1, text="Browse", command=self._import_button).pack(side="right")
+        tk.Button(buttons_frame1, text="Browse", command=self._browse_button).pack(side="right")
 
         # Create frame and add 2 buttons to it.
         buttons_frame2 = tk.Frame(main_window)
-        tk.Button(buttons_frame2, text="Import", command=self._create_button_clicked).pack(side="left")
+        tk.Button(buttons_frame2, text="Import", command=self._import_button_clicked).pack(side="left")
         tk.Button(buttons_frame2, text="Cancel", command=self._cancel_button_clicked).pack(side="right")
 
         # Specify location of widgets on main window
@@ -60,11 +60,11 @@ class Application(tk.Frame):
         buttons_frame2.grid(row=3, column=0)
 
     # Function to be called when create button is clicked
-    def _create_button_clicked(self):
-        print('Launch button clicked')
-        Workspace_name = self.name_entry.get()
+    def _import_button_clicked(self):
+        print('Import button clicked')
+        project_path = self.name_entry.get()
 
-    def _import_button(self):
+    def _browse_button(self):
         from tkFileDialog import askopenfilename
 
         tk.Tk().withdraw()
@@ -80,5 +80,5 @@ class Application(tk.Frame):
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = Application(master=root)
+    app = Import_Project(master=root)
     app.mainloop()
