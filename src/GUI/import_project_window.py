@@ -34,7 +34,6 @@ class Import_Project(tk.Frame):
         self.pack()
         self._create_widgets()
 
-
     # Adds all the widgets.
     def _create_widgets(self):
         # Main window
@@ -44,7 +43,7 @@ class Import_Project(tk.Frame):
         # Create Label with text, and add to main_window
         project_label = tk.Label(main_window, text="Import a project into the current workspace")
 
-        # Create frame with label and entry, and add to main_window
+        # Create frame with label, entry, and button to add to main_window
         name_frame, self.name_entry = self._create_frame_with_entry(main_window, "Import project")
         buttons_frame1 = tk.Frame(main_window)
         tk.Button(buttons_frame1, text="Browse", command=self._browse_button).pack(side="right")
@@ -60,22 +59,21 @@ class Import_Project(tk.Frame):
         buttons_frame1.grid(row=1, column=1)
         buttons_frame2.grid(row=3, column=0)
 
-    # Function to be called when create button is clicked
+    # Function to be called when import button is clicked
     def _import_button_clicked(self):
         print('Import button clicked')
         project_path = self.name_entry.get()
 
+    # Function to be called when browse button is clicked
     def _browse_button(self):
         tk.Tk().withdraw()
         self.filename = askopenfilename()
         print(self.filename)
 
-
-                # Function to be called when cancel button is clicked
+    # Function to be called when cancel button is clicked
     def _cancel_button_clicked(self):
         print('Cancel button clicked')
         self.root.destroy()
-
 
 if __name__ == "__main__":
     root = tk.Tk()
