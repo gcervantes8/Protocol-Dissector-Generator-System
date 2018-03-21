@@ -13,7 +13,7 @@ Created on Fri Mar  2 13:29:57 2018
 import Tkinter as tk
 
 
-class Application(tk.Frame):
+class Create_project_window(tk.Frame):
     
     #Function create frame with label on left, and entry on the right
     #Returns the frame with label and entry, and returns the entry
@@ -81,5 +81,5 @@ class Application(tk.Frame):
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = Application(master=root)
+    app = Create_project_window(master=root)
     app.mainloop()
