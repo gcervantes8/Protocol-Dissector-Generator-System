@@ -10,6 +10,7 @@ Created on Fri Mar  2 13:29:57 2018
 """
 
 import Tkinter as tk
+from tkFileDialog import askopenfilename
 
 class Import_Project(tk.Frame):
 
@@ -65,8 +66,6 @@ class Import_Project(tk.Frame):
         project_path = self.name_entry.get()
 
     def _browse_button(self):
-        from tkFileDialog import askopenfilename
-
         tk.Tk().withdraw()
         self.filename = askopenfilename()
         print(self.filename)
