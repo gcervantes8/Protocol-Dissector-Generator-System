@@ -1,4 +1,4 @@
-#! python2
+     #! python2
 # -*- coding: utf-8 -*-
 """
 Created on Fri Mar  2 13:29:57 2018
@@ -9,7 +9,7 @@ Created on Fri Mar  2 13:29:57 2018
 import Tkinter as tk
 
 
-class Application(tk.Frame):
+class Field_window(tk.Frame):
     
     
     #Function create frame with label on left, and entry on the right
@@ -89,5 +89,5 @@ class Application(tk.Frame):
         
 if __name__ == "__main__":
     root = tk.Tk()
-    app = Application(master=root)
+    app = Field_window(master=root)
     app.mainloop()

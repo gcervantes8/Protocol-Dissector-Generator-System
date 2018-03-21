@@ -8,7 +8,7 @@ Created on Sat Mar 10 16:31:20 2018
 import Tkinter as tk
 
 
-class Application(tk.Frame):
+class Dissected_stream_window(tk.Frame):
     
     def __init__(self, master=None):
         
@@ -75,7 +75,7 @@ class Application(tk.Frame):
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = Application(root)
+    app = Dissected_stream_window(root)
     app.pack(fill = "both", expand = True)
     
     #Add text to dissected stream window
