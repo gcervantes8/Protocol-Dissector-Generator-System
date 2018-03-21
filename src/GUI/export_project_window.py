@@ -32,7 +32,8 @@ class ExportProject():
     def _create_widgets(self):
 
         def change_project():
-            projectname = tkFileDialog.askopenfilename()
+            projectname = tkFileDialog.askopenfilename(defaultextension=".xml",
+                        filetypes=(("XML file", "*.xml"), ("All Files", "*.*")))
             project_entry.delete(0, END)
             project_entry.insert(0, projectname)
 
