@@ -20,17 +20,17 @@ class PacketStreamAreaWindow(tk.Frame):
             row += 1
             col = 0
 
-    def init_window(self,pos):
-        root = pos
-        root.wm_title('Packet Stream Area View')
-        tk.Label(root,text='No .').grid(column=0,row=0)
-        tk.Label(root,text='Time').grid(column=1, row=0)
-        tk.Label(root,text='Source').grid(column=2, row=0)
-        tk.Label(root,text='Destination').grid(column=3, row=0)
-        tk.Label(root,text='Protocol').grid(column=4, row=0)
-        tk.Label(root,text='Info').grid(column=5, row=0)
-        self._display_packets(self.pcap,root)
-        root.mainloop()
+    def init_window(self):
+       # self.wm_title('Packet Stream Area View')
+        tk.Label(self,text='No .').grid(column=0,row=0)
+        tk.Label(self,text='Time').grid(column=1, row=0)
+        tk.Label(self,text='Source').grid(column=2, row=0)
+        tk.Label(self,text='Destination').grid(column=3, row=0)
+        tk.Label(self,text='Protocol').grid(column=4, row=0)
+        tk.Label(self,text='Info').grid(column=5, row=0)
+        self._display_packets(self.pcap,self)
 
-
-
+    def __init__(self,parent):
+        tk.Frame.__init__(self,parent)
+        self.root = parent
+        self.init_window()

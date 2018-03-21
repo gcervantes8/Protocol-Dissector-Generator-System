@@ -21,23 +21,25 @@ from Tkinter import *
 import Tkinter as tk
 from ttk import *
 
-menu = MenuWindow()
-ds = DissectorScriptWindow()
-psa = PacketStreamAreaWindow()
-pif = PacketInformationFieldWindow()
 
 
-# ds.init_window()
-# psa.init_window()
 
 root = tk.Tk()
 root.wm_title('PDGS')
 
-#menu.init_window(root)
-frame = psa.init_window(root)
 
-menu.init_window(root)
+menu = MenuWindow(root)
+menu.pack()
+psa = PacketStreamAreaWindow(root)
+psa.pack()
+pif = PacketInformationFieldWindow(root)
+pif.pack()
+ds = DissectorScriptWindow(root)
+ds.pack()
 
+
+
+root.mainloop()
 
 
 
