@@ -10,15 +10,16 @@ Created on  Mar  20  2018
             Christopher Soto
 """
 
-from Tkinter import *
+import Tkinter as tk
 import tkFileDialog
 import os
 
 
-class ExportProject():
-    def __init__(self, master=None):
-        self.root = master
+class ExportProject(tk.Frame):
+    def __init__(self, parent=None):
+        self.root = parent
         root.title("Export Project")
+        tk.Frame.__init__(self)
 
         # block to control where window opens
         w = root.winfo_screenwidth()
@@ -34,12 +35,12 @@ class ExportProject():
         def change_project():
             projectname = tkFileDialog.askopenfilename(defaultextension=".xml",
                         filetypes=(("XML file", "*.xml"), ("All Files", "*.*")))
-            project_entry.delete(0, END)
+            project_entry.delete(0, tk.END)
             project_entry.insert(0, projectname)
 
         def change_path():
-            dirname = tkFileDialog.askdirectory(parent=root, initialdir=os.getcwd())
-            export_entry.delete(0, END)
+            dirname = tkFileDialog.askdirectory(parent=self.root, initialdir=os.getcwd())
+            export_entry.delete(0, tk.END)
             export_entry.insert(0, dirname)
 
         def export_project():
@@ -48,20 +49,20 @@ class ExportProject():
         def cancel():
             exit(0)
 
-        desc = Label(root, text = "Export project to the local file system.", pady=10)
+        desc = tk.Label(self.root, text = "Export project to the local file system.", pady=10)
         desc.pack()
 
-        frame1 = Frame(root)
-        frame1.pack(side = LEFT)
+        frame1 = tk.Frame(self.root)
+        frame1.pack(side = tk.LEFT)
 
-        project_label = Label(frame1, text="Project")
-        project_entry = Entry(frame1, width=40)
-        export_label = Label(frame1, text="To export file", pady=10)
-        export_entry = Entry(frame1, width=40)
-        project_browse_button = Button(frame1, command=change_project, text="Browse", padx=10)
-        export_browse_button = Button(frame1, command=change_path, text="Browse", padx=10)
-        export_button = Button(frame1, command=export_project, text="Export", padx=10)
-        cancel_button = Button(frame1, command=cancel, text="Cancel", padx=10)
+        project_label = tk.Label(frame1, text="Project")
+        project_entry = tk.Entry(frame1, width=40)
+        export_label = tk.Label(frame1, text="To export file", pady=10)
+        export_entry = tk.Entry(frame1, width=40)
+        project_browse_button = tk.Button(frame1, command=change_project, text="Browse", padx=10)
+        export_browse_button = tk.Button(frame1, command=change_path, text="Browse", padx=10)
+        export_button = tk.Button(frame1, command=export_project, text="Export", padx=10)
+        cancel_button = tk.Button(frame1, command=cancel, text="Cancel", padx=10)
 
         project_label.pack()
         project_entry.pack()
@@ -72,16 +73,17 @@ class ExportProject():
         export_button.pack()
         cancel_button.pack()
 
-        project_label.grid(row=0, column=0, sticky=E)
+        project_label.grid(row=0, column=0, sticky=tk.E)
         project_entry.grid(row=0, column=1)
         export_label.grid(row=1, column=0)
         export_entry.grid(row=1, column=1)
         project_browse_button.grid(row=0, column=2, padx=10)
         export_browse_button.grid(row=1, column=2, padx=10)
-        export_button.grid(row=2, column=1, sticky=E)
+        export_button.grid(row=2, column=1, sticky=tk.E)
         cancel_button.grid(row=2, column=2)
 
+
 if __name__ == "__main__":
-    root = Tk()
-    app = ExportProject(master=root)
-    root.mainloop()
+    root = tk.Tk()
+    app = ExportProject(parent=root)
+    app.mainloop()
