@@ -51,14 +51,14 @@ class ExportProject(tk.Frame):
         export_button = tk.Button(frame1, command=export_project, text="Export", padx=10)
         cancel_button = tk.Button(frame1, command=cancel, text="Cancel", padx=10)
 
-        project_label.pack()
-        project_entry.pack()
-        export_label.pack()
-        export_entry.pack()
-        project_browse_button.pack()
-        export_browse_button.pack()
-        export_button.pack()
-        cancel_button.pack()
+        # project_label.pack()
+        # project_entry.pack()
+        # export_label.pack()
+        # export_entry.pack()
+        # project_browse_button.pack()
+        # export_browse_button.pack()
+        # export_button.pack()
+        # cancel_button.pack()
 
         project_label.grid(row=0, column=0, sticky=tk.E)
         project_entry.grid(row=0, column=1)
@@ -72,19 +72,19 @@ class ExportProject(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
         self.root = parent
-        #self.root.title("Export Project")
+        self.root.title("Export Project")
 
-        # # block to control where window opens
-        # w = self.root.winfo_screenwidth()
-        # h = self.root.winfo_screenheight()
-        # w = w/2
-        # h = h/2
-        # self.root.geometry("400x150+%d+%d" % (w-150, h-100))
+        # block to control where window opens
+        w = self.root.winfo_screenwidth()
+        h = self.root.winfo_screenheight()
+        w = w/2
+        h = h/2
+        self.root.geometry("400x150+%d+%d" % (w-150, h-100))
 
         self._create_widgets()
 
 
-# if __name__ == "__main__":
-#     root = tk.Tk()
-#     app = ExportProject(parent=root)
-#     app.mainloop()
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = ExportProject(parent=root)
+    app.mainloop()
