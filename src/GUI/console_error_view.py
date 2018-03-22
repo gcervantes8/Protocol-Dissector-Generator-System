@@ -33,7 +33,7 @@ class ConsoleErrorView(tk.Frame):
         frame1.pack(side=tk.LEFT)
 
         desc = tk.Text(frame1, pady=10)
-        desc.pack()
+#        desc.pack()
 
         desc.grid(row=0, column=0, sticky=tk.NW)
 
