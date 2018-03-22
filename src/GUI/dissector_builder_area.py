@@ -26,15 +26,18 @@ from field_window import Field_window
 from end_field_window import End_field
 from reference_list_field import Reference_List_Window
 from packet_information_field_window import PacketInformationFieldWindow
+
+
 class Dissector_builder_area(tk.Frame):
     
     def __init__(self, master=None):
         
         self.root = master
         master.geometry("800x700")
+#        master.grid(row=0, column=1)
 #        master.pack(expand=1, fill=tk.BOTH)
         
-        master.title("Drop and drop demo")
+        master.title("Dissector Builder Area")
         tk.Frame.__init__(self)
         self.pack()
         self._create_widgets()
@@ -79,7 +82,7 @@ class Dissector_builder_area(tk.Frame):
 #        palette = Palette_frame(self)
         palette = self.create_palette(self)
         palette_width = 200
-        palette.place(x = 0, y = 0, width = palette_width, height = 300)
+        palette.place(x = 0, y = 0, width = palette_width, height = 700)
         
         
 #        frame_A = tk.Frame(canvas, bg = 'green')
@@ -109,97 +112,79 @@ class Dissector_builder_area(tk.Frame):
 #        dnd_buttonB.add_dragable(buttonB, buttonB_x, buttonB_y)
 #        
     def handle_func(self, x, y, widget):
-        
-        if x > 200:
-            print('add button to dissector builder')
-            self.add_button(self.canvas, widget['text'])
-            
-        else:
-            print('Do not add button')
+        self.add_button(self.canvas, widget['text'])
+
         
         
 #    def handle_func(A, B):
 #        print('Handle function called!!')
     def add_button(self, canvas, object_type):
         print(object_type)
+        dnd = Drag_and_drop()
+        x, y = 200, 175
         if object_type == 'Start Field':
             start_field = Start_Field_Window(canvas)
-            x, y = 175, 175
+#            x, y = 175, 175
             start_field.place(x = x, y = y, height = 170, width = 300)
-            dnd = Drag_and_drop()
             dnd.add_dragable(start_field, x, y)
-            
-#            pass
-#        if object_type == 'Start Field':
-#            button = tk.Label(canvas, text = "Start Field")
-#            button.place(x = 175, y = 175, height = 10, width = 60)
         if object_type == 'Field(1 Byte)':
             field = Field_window(canvas)
-            x, y = 175, 175
+#            x, y = 175, 175
             field.place(x = x, y = y, height = 230, width = 300)
-            dnd = Drag_and_drop()
+            
             dnd.add_dragable(field, x, y)
         if object_type == 'Field(2 Byte)':
             field = Field_window(canvas)
-            x, y = 175, 175
+            
             field.place(x = x, y = y, height = 230, width = 300)
-            dnd = Drag_and_drop()
             dnd.add_dragable(field, x, y)
         if object_type == 'Field(4 Byte)':
             field = Field_window(canvas)
-            x, y = 175, 175
+#            x, y = 175, 175
             field.place(x = x, y = y, height = 230, width = 300)
-            dnd = Drag_and_drop()
             dnd.add_dragable(field, x, y)
         if object_type == 'Field(8 Byte)':
             field = Field_window(canvas)
-            x, y = 175, 175
+#            x, y = 175, 175
             field.place(x = x, y = y, height = 230, width = 300)
-            dnd = Drag_and_drop()
             dnd.add_dragable(field, x, y)
         if object_type == 'Field(16 Byte)':
             field = Field_window(canvas)
-            x, y = 175, 175
+#            x, y = 175, 175
             field.place(x = x, y = y, height = 230, width = 300)
-            dnd = Drag_and_drop()
             dnd.add_dragable(field, x, y)
         if object_type == 'Field(Var Byte)':
             field = Field_window(canvas)
-            x, y = 175, 175
+#            x, y = 175, 175
             field.place(x = x, y = y, height = 230, width = 300)
-            dnd = Drag_and_drop()
             dnd.add_dragable(field, x, y)
         if object_type == 'End Field':
             field = End_field(canvas)
-            x, y = 175, 175
+#            x, y = 175, 175
             field.place(x = x, y = y, height = 100, width = 200)
-            dnd = Drag_and_drop()
             dnd.add_dragable(field, x, y)
             
         if object_type == 'Reference List':
             field = Reference_List_Window(canvas)
-            x, y = 175, 175
+#            x, y = 175, 175
             field.place(x = x, y = y, height = 230, width = 300)
-            dnd = Drag_and_drop()
             dnd.add_dragable(field, x, y)
             
         if object_type == 'Packet Info.':
             
             field = PacketInformationFieldWindow(canvas)
-            x, y = 175, 175
+#            x, y = 175, 175
             field.place(x = x, y = y, height = 330, width = 400)
-            dnd = Drag_and_drop()
             dnd.add_dragable(field, x, y)
         
         if object_type in ['Expression', 'Connector' , '<', '>', '<=', '>=', '==', '~=', 'And', 'Or', 'Not', 'Operand']:
-            x, y = 175, 175
+#            x, y = 175, 175
             button = tk.Label(canvas, text = object_type)
             button.place(x = 175, y = 175, height = 12, width = 60)
-            dnd = Drag_and_drop()
             dnd.add_dragable(button, x, y)
             
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = Dissector_builder_area(master=root)
+    app = Dissector_builder_area(master = root)
     app.mainloop()

@@ -62,7 +62,7 @@ class Palette_drag_and_drop():
         
         
         
-        target = event.widget.winfo_containing(new_x, new_y)
+#        target = event.widget.winfo_containing(new_x, new_y)
         try:
             print(self.dissector_builder)
             print(self.dissector_builder.handle_func)
@@ -77,7 +77,7 @@ class Palette_drag_and_drop():
                 pass
                 #if not then tries to add it to target behind it
             else:
-                print('yoooooooo')
+                pass
                 
         except:
             print('error')
