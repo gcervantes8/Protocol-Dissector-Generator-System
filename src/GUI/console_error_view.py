@@ -14,28 +14,28 @@ import Tkinter as tk
 
 
 class ConsoleErrorView(tk.Frame):
-    def __init__(self, parent=None):
-        self.root = parent
-        root.title("Console Errors")
+    def __init__(self, parent):
         tk.Frame.__init__(self)
+        self.root = parent
+       # root.title("Console Errors")
 
         # block to control where window opens
-        w = root.winfo_screenwidth()
-        h = root.winfo_screenheight()
-        w = w/2
-        h = h/2
-        root.geometry("600x100+%d+%d" % (w-100, h-100))
+        # w = self.root.winfo_screenwidth()
+        # h = self.root.winfo_screenheight()
+        # w = w/2
+        # h = h/2
+        # self.root.geometry("600x100+%d+%d" % (w-100, h-100))
 
         self._create_widgets()
 
     def _create_widgets(self):
-        frame1 = tk.Frame(root)
-        frame1.pack(side=tk.LEFT)
+        frame1 = tk.Frame(self.root)
+        frame1.pack()
 
-        desc = tk.Text(frame1, pady=10)
-#        desc.pack()
+        desc = tk.Text(frame1)
+        desc.pack()
 
-        desc.grid(row=0, column=0, sticky=tk.NW)
+        desc.grid(row=0, column=0)
 
         desc.insert(tk.INSERT, "No error messages to display.")
 

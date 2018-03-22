@@ -19,22 +19,22 @@ class Raw_data_window(tk.Frame):
 
     def _create_widgets(self):
         # Frame
-        main_window = tk.Frame(self)
+        main_window = tk.Frame(self.root)
         main_window.pack(side="top")
 
         # Create text_frame with label instruction and text widget
-        text_frame = tk.Frame(self)
+        text_frame = tk.Frame(self.root)
         text_frame.pack(side="left")
 
         # Main text
         self.text = tk.Text(text_frame)
         self.text.pack(side="bottom")
-
+        self.add_text("RAW DATA")
 
         # Scroll bar
-        self.scrollbar = tk.Scrollbar(self, command=self.text.yview)
-        self.scrollbar.pack(side="right", fill="y")
-        self.text.configure(yscrollcommand=self.scrollbar.set)
+        # self.scrollbar = tk.Scrollbar(main_window, command=self.text.yview)
+        # self.scrollbar.pack(side="right", fill="y")
+        # self.text.configure(yscrollcommand=self.scrollbar.set)
 
     # Adds text to the dissected stream window, header and text are both str
     def add_text(self, text):

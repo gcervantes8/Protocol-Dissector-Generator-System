@@ -15,11 +15,11 @@ Created on Fri Mar  2 13:29:57 2018
 import Tkinter as tk
 
 
-class ImportProject(tk.Frame):
+class ProjectNavigatorWindow(tk.Frame):
     def _create_widgets(self):
 
-        desc = tk.Label(self.root, text="Workspace X", pady=10)
-        desc.pack()
+        # desc = tk.Label(self.root, text="Workspace X", pady=10)
+        # desc.pack()
 
         frame1 = tk.Frame(self.root)
         frame1.pack(side=tk.LEFT)
@@ -40,7 +40,7 @@ class ImportProject(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
         self.root = parent
-        self.root.title("Import Project")
+        self.root.title("Project Navigator")
 
         # block to control where window opens
         w = self.root.winfo_screenwidth()
@@ -54,5 +54,5 @@ class ImportProject(tk.Frame):
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = ImportProject(parent=root)
+    app = ProjectNavigatorWindow(parent=root)
     app.mainloop()

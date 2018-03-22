@@ -10,10 +10,12 @@ Created on  Mar  15  2018
 """
 
 import Tkinter as tk
+from Tkinter import Toplevel
 from create_project_window import CreateProjectWindow
 from export_project_window import ExportProject
 from import_project_window import ImportProject
 from dissector_script_window import DissectorScriptWindow
+
 from organize_views import OrganizeViews
 from open_pcap_window import OpenPcapWindow
 
@@ -74,6 +76,12 @@ class MenuWindow(tk.Frame):
 
         else:
             print("No root set in menu.py")
+    def switch_ws_click(self):
+        if self.root != None:
+           print("SWITCH")
+
+        else:
+            print("No root set in menu.py")
 
     def pcap_click(self):
         if self.root != None:
@@ -91,7 +99,7 @@ class MenuWindow(tk.Frame):
         save_btn.grid(column=1, row=0)
         close_btn = tk.Button(self, text='Close Project', command=self.buttonClick)
         close_btn.grid(column=2, row=0)
-        switch_ws_btn = tk.Button(self, text='Switch Workspace', command=self.buttonClick)
+        switch_ws_btn = tk.Button(self, text='Switch Workspace', command=self.switch_ws_click)
         switch_ws_btn.grid(column=3, row=0)
         import_btn = tk.Button(self, text='Import Project', command=self.import_click)
         import_btn.grid(column=4, row=0)
