@@ -8,7 +8,7 @@ class Palette_frame(Frame):
     def __init__(self, master, text = None, borderwidth = 2, width = 0, height = 16, interior_padx = 0, interior_pady = 8,
                  background = None, caption_separation = 4, caption_font = None, caption_builder = None, icon_x = 5):
         Frame.__init__(self, master)
-        master.title("Palette")
+#        master.title("Palette")
         self._is_opened = False
 
         self._interior_padx = interior_padx

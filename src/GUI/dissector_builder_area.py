@@ -109,10 +109,6 @@ class Dissector_builder_area(tk.Frame):
 #        dnd_buttonB.add_dragable(buttonB, buttonB_x, buttonB_y)
 #        
     def handle_func(self, x, y, widget):
-        print('Handle function called!!')
-        print(x)
-        print(y)
-        print(widget['text'])
         
         if x > 200:
             print('add button to dissector builder')
@@ -127,14 +123,11 @@ class Dissector_builder_area(tk.Frame):
     def add_button(self, canvas, object_type):
         print(object_type)
         if object_type == 'Start Field':
-            print('HELLO')
             start_field = Start_Field_Window(canvas)
-            print('a')
             x, y = 175, 175
             start_field.place(x = x, y = y, height = 170, width = 300)
             dnd = Drag_and_drop()
             dnd.add_dragable(start_field, x, y)
-            print('b')
             
 #            pass
 #        if object_type == 'Start Field':
