@@ -28,7 +28,7 @@ class Workspace_save_window(tk.Frame):
 
     def __init__(self, master=None):
         self.root = master
-        master.title("Worksapace Launcher")
+        master.title("Workspace Launcher")
         tk.Frame.__init__(self)
         self.pack()
         self._create_widgets()

@@ -44,7 +44,7 @@ class Open_pcap_window(tk.Frame):
         project_label = tk.Label(main_window, text="Open a PCAP file")
 
         # Create frame with label and entry, and add to main_window
-        name_frame, self.name_entry = self._create_frame_with_entry(main_window, "PCAP Namw")
+        name_frame, self.name_entry = self._create_frame_with_entry(main_window, "PCAP Name")
         buttons_frame1 = tk.Frame(main_window)
         tk.Button(buttons_frame1, text="Browse", command=self._browse_button).pack(side="right")
 
