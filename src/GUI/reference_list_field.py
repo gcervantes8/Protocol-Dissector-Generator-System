@@ -5,8 +5,7 @@ Created on Wed Mar 21 22:05:42 2018
 @author: revil0mg
 """
 
-#TODO: Add Reference List Name field on top of window. (see SRS for details)
-#TODO: Make + button work properly ??
+#TODO: Fix first entry when adding entries
 
 import Tkinter as tk
 import ttk
@@ -17,18 +16,22 @@ class Reference_List_Window(tk.Frame):
         tk.Entry(frame, text = " ").grid(column = c+1, row = r+1)
         self.column = 0
         self.row +=1
+        
     def init_window(self):
 
         #root.wm_title('Packet Information')
 
         frame = tk.Frame(self)
         frame.pack()
-        tk.Label(frame,text='Value').grid(column=0,row=0)
-        tk.Label(frame,text='Description').grid(column=1, row=0)
+        tk.Label(frame,text='Reference List Name').grid(column=0,row=0)
+        entryRLN = ttk.Entry(frame)
+        entryRLN.grid(column = 1 , row = 0)
+        tk.Label(frame,text='Value').grid(column=0,row=1)
+        tk.Label(frame,text='Text Description').grid(column=1, row=1)
         entry1 = ttk.Entry(frame)
-        entry1.grid(column = 0 , row = 1)
+        entry1.grid(column = 0 , row = 2)
         entry2 = ttk.Entry(frame)
-        entry2.grid(column = 1 , row = 1)
+        entry2.grid(column = 1 , row = 2)
         tk.Button(frame, text="+",command = lambda: self._new_entry(frame,self.column,self.row)).grid(column = 3, row = 2)
 
 
