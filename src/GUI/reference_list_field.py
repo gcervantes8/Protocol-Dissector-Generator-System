@@ -10,8 +10,8 @@ import ttk
 
 class Reference_List_Window(tk.Frame):
     def _new_entry(self, frame, c, r):
-        tk.Entry(frame, text = "").grid(column = c, row = r+1)
-        tk.Entry(frame, text = "").grid(column = c+1, row = r+1)
+        tk.Entry(frame).grid(column = c, row = r+1)
+        tk.Entry(frame).grid(column = c+1, row = r+1)
         self.column = 0
         self.row +=1
         
