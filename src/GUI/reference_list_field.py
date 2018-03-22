@@ -5,8 +5,6 @@ Created on Wed Mar 21 22:05:42 2018
 @author: revil0mg
 """
 
-#TODO: Fix first entry when adding entries
-
 import Tkinter as tk
 import ttk
 
@@ -18,8 +16,6 @@ class Reference_List_Window(tk.Frame):
         self.row +=1
         
     def init_window(self):
-
-        #root.wm_title('Packet Information')
 
         frame = tk.Frame(self)
         frame.pack()
@@ -41,7 +37,7 @@ class Reference_List_Window(tk.Frame):
         self.root = parent
         self.root.title("Refernce List [Reference List Name]")
         self.column = 0
-        self.row = 1
+        self.row = 2
         self.init_window()
 
 if __name__ == "__main__":
