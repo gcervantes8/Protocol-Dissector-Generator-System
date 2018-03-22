@@ -14,7 +14,7 @@ Created on Fri Mar  2 13:29:57 2018
 import Tkinter as tk
 
 
-class Application(tk.Frame):
+class Start_Field_Window(tk.Frame):
     
     #Function create frame with label on left, and entry on the right
     #Returns the frame with label and entry, and returns the entry
@@ -80,5 +80,5 @@ class Application(tk.Frame):
         self.root.destroy()
 
 root = tk.Tk()
-app = Application(master=root)
+app = Start_Field_Window(master=root)
 app.mainloop()
