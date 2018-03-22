@@ -1,6 +1,6 @@
 
 from Tkinter import Tk, Button
-from TTkinter import PhotoImage, Frame, Label, Widget
+from Tkinter import PhotoImage, Frame, Label, Widget
 from Tkconstants import *
 
 
