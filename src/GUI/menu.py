@@ -15,6 +15,7 @@ from export_project_window import ExportProject
 from import_project_window import ImportProject
 from dissector_script_window import DissectorScriptWindow
 from organize_views import OrganizeViews
+from open_pcap_window import OpenPcapWindow
 
 
 class MenuWindow(tk.Frame):
@@ -28,6 +29,14 @@ class MenuWindow(tk.Frame):
         if self.root != None:
             popup = tk.Toplevel(self.root)
             create_proj = CreateProjectWindow(popup)
+
+        else:
+            print("No root set in menu.py")
+
+    def save_click(self):
+        if self.root != None:
+            popup = tk.Toplevel(self.root)
+            save_proj = CreateProjectWindow(popup)
 
         else:
             print("No root set in menu.py")
@@ -65,6 +74,14 @@ class MenuWindow(tk.Frame):
 
         else:
             print("No root set in menu.py")
+
+    def pcap_click(self):
+        if self.root != None:
+            popup = tk.Toplevel(self.root)
+            open_pcap = OpenPcapWindow(popup)
+
+        else:
+            print("No root set in menu.py")
             
     def init_window(self):
 
@@ -85,7 +102,7 @@ class MenuWindow(tk.Frame):
         gen_dis_script_btn.grid(column=6, row=0)
         org_views_btn = tk.Button(self, text='Organize Views', command=self.organize_views_click)
         org_views_btn.grid(column=7, row=0)
-        open_pcap_btn = tk.Button(self, text='Open PCAP', command=self.buttonClick)
+        open_pcap_btn = tk.Button(self, text='Open PCAP', command=self.pcap_click)
         open_pcap_btn.grid(column=8, row=0)
 
     def __init__(self,parent):

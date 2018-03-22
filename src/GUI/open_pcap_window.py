@@ -11,7 +11,7 @@ Created on Fri Mar  2 13:29:57 2018
 
 import Tkinter as tk
 
-class Open_pcap_window(tk.Frame):
+class OpenPcapWindow(tk.Frame):
 
     # Function create frame with label on left, and entry on the right
     # Returns the frame with label and entry, and returns the entry
@@ -37,7 +37,7 @@ class Open_pcap_window(tk.Frame):
     # Adds all the widgets.
     def _create_widgets(self):
         # Main window
-        main_window = tk.Frame(self)
+        main_window = tk.Frame(self.root)
         main_window.pack(side="top")
 
         # Create Label with text, and add to main_window
@@ -80,5 +80,5 @@ class Open_pcap_window(tk.Frame):
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = Open_pcap_window(master=root)
+    app = OpenPcapWindow(master=root)
     app.mainloop()
