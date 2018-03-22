@@ -77,7 +77,6 @@ class Dissector_builder_area(tk.Frame):
         canvas = tk.Canvas(self)
         self.canvas = canvas
 #        canvas.pack(expand=1, fill=tk.BOTH)
-        canvas.geometry("1200x700")
         canvas.grid(row=0,column=0)
 #        palette = Palette_frame(self)
         palette = self.create_palette(self)
