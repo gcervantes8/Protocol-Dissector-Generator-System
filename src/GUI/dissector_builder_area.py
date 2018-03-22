@@ -25,13 +25,13 @@ from start_field_window import Start_Field_Window
 from field_window import Field_window
 from end_field_window import End_field
 from reference_list_field import Reference_List_Window
-
+from packet_information_field_window import PacketInformationFieldWindow
 class Dissector_builder_area(tk.Frame):
     
     def __init__(self, master=None):
         
         self.root = master
-        master.geometry("800x600")
+        master.geometry("800x700")
 #        master.pack(expand=1, fill=tk.BOTH)
         
         master.title("Drop and drop demo")
@@ -184,13 +184,17 @@ class Dissector_builder_area(tk.Frame):
             dnd.add_dragable(field, x, y)
             
         if object_type == 'Packet Info.':
-            button = tk.Label(canvas, text = 'Packet Info.')
-            button.place(x = 175, y = 175, height = 10, width = 60)
+            
+            field = PacketInformationFieldWindow(canvas)
+            x, y = 175, 175
+            field.place(x = x, y = y, height = 330, width = 400)
+            dnd = Drag_and_drop()
+            dnd.add_dragable(field, x, y)
         
         if object_type in ['Expression', 'Connector' , '<', '>', '<=', '>=', '==', '~=', 'And', 'Or', 'Not', 'Operand']:
             x, y = 175, 175
             button = tk.Label(canvas, text = object_type)
-            button.place(x = 175, y = 175, height = 10, width = 60)
+            button.place(x = 175, y = 175, height = 12, width = 60)
             dnd = Drag_and_drop()
             dnd.add_dragable(button, x, y)
             

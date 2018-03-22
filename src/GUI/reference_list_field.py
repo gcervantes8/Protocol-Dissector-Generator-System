@@ -37,7 +37,7 @@ class Reference_List_Window(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self,parent)
         self.root = parent
-        self.root.title("Refernce List [Reference List Name]")
+#        self.root.title("Reference List [Reference List Name]")
         self.column = 0
         self.row = 2
         self.add_button = None

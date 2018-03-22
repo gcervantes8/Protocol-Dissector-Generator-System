@@ -16,7 +16,7 @@ class End_field(tk.Frame):
 
     def __init__(self, master=None):
         self.root = master
-        master.title("End Field")
+#        master.title("End Field")
         tk.Frame.__init__(self)
         self.pack()
         self._create_widgets()
