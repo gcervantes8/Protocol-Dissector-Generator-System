@@ -13,6 +13,7 @@ Created on  Mar  20  2018
 import Tkinter as tk
 
 
+
 class OrganizeViews(tk.Frame):
     def _create_widgets(self):
         def sel1():
@@ -26,6 +27,11 @@ class OrganizeViews(tk.Frame):
 
         def sel4():
             selection = var4.get()
+
+            if selection == 0:
+                print("0")
+            else:
+                print("1")
 
         def sel5():
             selection = var5.get()

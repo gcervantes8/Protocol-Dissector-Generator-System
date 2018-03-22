@@ -30,10 +30,14 @@ class PacketStreamAreaWindow(tk.Frame):
         tk.Label(self,text='Info').grid(column=5, row=0)
         self._display_packets(self.pcap,self)
 
+    def hide_window(self):
+        self.pack_forget()
+
     def __init__(self,parent):
         tk.Frame.__init__(self,parent)
         self.root = parent
         self.init_window()
+
         
 if __name__ == "__main__":
     root = tk.Tk()

@@ -10,6 +10,8 @@ Created on Fri Mar  2 13:29:57 2018
 """
 
 import Tkinter as tk
+from tkFileDialog import askdirectory
+
 
 class Workspace_save_window(tk.Frame):
 
@@ -26,50 +28,60 @@ class Workspace_save_window(tk.Frame):
 
         return main_frame, entry
 
-    def __init__(self, master=None):
-        self.root = master
-        master.title("Workspace Launcher")
+    def __init__(self,main_win, parent):
         tk.Frame.__init__(self)
-        self.pack()
+        self.main_win = main_win
+        self.root = parent
+        self.root.title("Workspace Launcher")
         self._create_widgets()
 
 
     # Adds all the widgets.
     def _create_widgets(self):
-        # Main window
-        main_window = tk.Frame(self)
-        main_window.pack(side="top")
+        self.folder_path = ''
+        self.root.columnconfigure(0, weight=1)
+        self.root.rowconfigure(3, weight=1)
 
-        # Create Label with text, and add to main_window
-        project_label = tk.Label(main_window, text="Select a directory as workspace: PDGS uses the workspace \n directory to store projects.")
+        # Create Widgets
+        self.label_title = tk.Label(self.root,
+                                     text="Select a directory as workspace: PDGS uses the workspace\ndirectory to store projects.")
+        self.contentframe = tk.Frame(self.root, relief="sunken")
 
-        # Create frame with label and entry, and add to main_window
-        name_frame, self.name_entry = self._create_frame_with_entry(main_window, "Workspace")
-        buttons_frame1 = tk.Frame(main_window)
-        tk.Button(buttons_frame1, text="Browse", command=self._browse_button).pack(side="right")
+        self.path_entry = tk.Entry(self.contentframe)
+        self.browse_btn = tk.Button(self.contentframe, text="Browse", command=self._browse_button)
 
-        # Create frame and add 2 buttons to it.
-        buttons_frame2 = tk.Frame(main_window)
-        tk.Button(buttons_frame2, text="Launch", command=self._create_button_clicked).pack(side="left")
-        tk.Button(buttons_frame2, text="Cancel", command=self._cancel_button_clicked).pack(side="right")
+        self.btn_do = tk.Button(self.root, text='Launch', command=self._create_button_clicked)
+        self.btn_cancel = tk.Button(self.root, text='Cancel',command=self._cancel_button_clicked)
 
-        # Specify location of widgets on main window
-        project_label.grid(row=0, column=0)
-        name_frame.grid(row=1, column=0)
-        buttons_frame1.grid(row=1, column=1)
-        buttons_frame2.grid(row=3, column=0)
+        # Layout
+        self.label_title.grid(row=0, column=0, columnspan=2, sticky='nsew')
+        self.contentframe.grid(row=1, column=0, columnspan=2, sticky='nsew')
+
+        self.path_entry.grid(row=0, column=0, sticky='ew')
+        self.contentframe.columnconfigure(0, weight=1)
+        self.browse_btn.grid(row=0, column=1, sticky='e')
+
+        self.btn_do.grid(row=2, column=0, sticky='e')
+        self.btn_cancel.grid(row=2, column=1, sticky='e')
+
+        # Padding
+        for child in self.root.winfo_children():
+            child.grid_configure(padx=10, pady=5)
+        for child in self.contentframe.winfo_children():
+            child.grid_configure(padx=5, pady=2)
 
     # Function to be called when create button is clicked
     def _create_button_clicked(self):
         print('Launch button clicked')
-        Workspace_name = self.name_entry.get()
+        self.main_win.init_window()
+        self.root.destroy()
 
     def _browse_button(self):
-        from tkFileDialog import askopenfilename
 
-        tk.Tk().withdraw()
-        self.filename = askopenfilename()
+        self.filename = askdirectory()
         print(self.filename)
+        self.path_entry.insert(0,self.filename)
+
 
 
                 # Function to be called when cancel button is clicked
@@ -77,8 +89,3 @@ class Workspace_save_window(tk.Frame):
         print('Cancel button clicked')
         self.root.destroy()
 
-
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = Workspace_save_window(master=root)
-    app.mainloop()
