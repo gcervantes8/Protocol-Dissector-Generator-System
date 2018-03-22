@@ -16,6 +16,7 @@ class PacketInformationFieldWindow(tk.Frame):
         tk.Entry(frame).grid(column = c+1, row = r+1)
         self.column = 0
         self.row +=1
+        self.add_button.grid(column = 3,row = self.row)
     def init_window(self):
 
         #root.wm_title('Packet Information')
@@ -28,7 +29,8 @@ class PacketInformationFieldWindow(tk.Frame):
         entry1.grid(column = 0 , row = 1)
         entry2 = ttk.Entry(frame)
         entry2.grid(column = 1 , row = 1)
-        tk.Button(frame, text="+",command = lambda: self._new_entry(frame,self.column,self.row)).grid(column = 3, row = 2)
+        self.add_button =tk.Button(frame, text="+",command = lambda: self._new_entry(frame,self.column,self.row))
+        self.add_button.grid(column = 3, row = 1)
 
 
 
@@ -37,6 +39,7 @@ class PacketInformationFieldWindow(tk.Frame):
         self.root = parent
         self.column = 0
         self.row = 1
+        self.add_button = None
         self.init_window()
 
 if __name__ == "__main__":
