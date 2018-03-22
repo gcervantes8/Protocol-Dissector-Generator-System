@@ -13,6 +13,7 @@ import Tkinter as tk
 from export_project_window import ExportProject
 from import_project_window import ImportProject
 from dissector_script_window import DissectorScriptWindow
+from organize_views import OrganizeViews
 
 class MenuWindow(tk.Frame):
     
@@ -46,6 +47,15 @@ class MenuWindow(tk.Frame):
 
         else:
             print("No root set in menu.py")
+
+    def organize_views_click(self):
+        if self.root != None:
+
+            popup = tk.Toplevel(self.root)
+            org_views = OrganizeViews(popup)
+
+        else:
+            print("No root set in menu.py")
             
     def init_window(self):
 
@@ -64,7 +74,7 @@ class MenuWindow(tk.Frame):
         gen_dis_script_btn = tk.Button(self, text='Generate Dissector Script',
                                        command=self.dissector_script_click)
         gen_dis_script_btn.grid(column=6, row=0)
-        org_views_btn = tk.Button(self, text='Organize Views', command=self.buttonClick)
+        org_views_btn = tk.Button(self, text='Organize Views', command=self.organize_views_click)
         org_views_btn.grid(column=7, row=0)
         open_pcap_btn = tk.Button(self, text='Open PCAP', command=self.buttonClick)
         open_pcap_btn.grid(column=8, row=0)

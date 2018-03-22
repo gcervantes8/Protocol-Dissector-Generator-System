@@ -14,20 +14,6 @@ import Tkinter as tk
 
 
 class OrganizeViews(tk.Frame):
-    def __init__(self, parent=None):
-        self.root = parent
-        root.title("Organize Views")
-        tk.Frame.__init__(self)
-
-        # block to control where window opens
-        w = root.winfo_screenwidth()
-        h = root.winfo_screenheight()
-        w = w/2
-        h = h/2
-        root.geometry("450x450+%d+%d" % (w-200, h-200))
-
-        self._create_widgets()
-
     def _create_widgets(self):
         def sel1():
             selection = var1.get()
@@ -65,11 +51,11 @@ class OrganizeViews(tk.Frame):
         def cancel():
             exit(0)
 
-        desc = tk.Label(root, text="Customize the views", pady=10)
+        desc = tk.Label(self.root, text="Customize the views", pady=10)
         desc.pack()
 
-        frame1 = tk.Frame(root)
-        frame1.pack(side = tk.LEFT)
+        frame1 = tk.Frame(self.root)
+        frame1.pack(side=tk.LEFT)
 
         #label section
         hide_label = tk.Label(frame1, text="Hide")
@@ -118,36 +104,6 @@ class OrganizeViews(tk.Frame):
         confirm_button = tk.Button(frame1, text="Confirm", command=confirm)
         cancel_button = tk.Button(frame1, text="Cancel", command=cancel)
 
-        #pack everything
-        # show_label.pack()
-        # hide_label.pack()
-        # project_nav.pack()
-        # dissector_build_area.pack()
-        # palette.pack()
-        # packet_stream_area.pack()
-        # dissected_stream_area.pack()
-        # raw_data_area.pack()
-        # console_area.pack()
-        #
-        # project_nav_off.pack()
-        # project_nav_on.pack()
-        # dissector_build_area_off.pack()
-        # dissected_build_area_on.pack()
-        # palette_off.pack()
-        # palette_on.pack()
-        # packet_stream_area_off.pack()
-        # packet_stream_area_on.pack()
-        # dissected_stream_area_off.pack()
-        # dissected_stream_area_on.pack()
-        # raw_data_area_off.pack()
-        # raw_data_area_on.pack()
-        # console_area_off.pack()
-        # console_area_on.pack()
-        #
-        # default_button.pack()
-        # confirm_button.pack()
-        # cancel_button.pack()
-
         #grid positioning
         hide_label.grid(row=0, column=1)
         show_label.grid(row=0, column=2)
@@ -178,6 +134,19 @@ class OrganizeViews(tk.Frame):
         confirm_button.grid(row=8, column=2)
         cancel_button.grid(row=8, column=3)
 
+    def __init__(self, parent):
+        tk.Frame.__init__(self, parent)
+        self.root = parent
+        self.root.title("Organize Views")
+
+        # block to control where window opens
+        w = self.root.winfo_screenwidth()
+        h = self.root.winfo_screenheight()
+        w = w/2
+        h = h/2
+        self.root.geometry("450x450+%d+%d" % (w-200, h-200))
+
+        self._create_widgets()
 
 if __name__ == "__main__":
     root = tk.Tk()
