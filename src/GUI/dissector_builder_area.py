@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Mar 20 21:42:36 2018
-
-@author: Jerry C
-"""
-
 #! python2
 # -*- coding: utf-8 -*-
 """
@@ -74,16 +67,25 @@ class Dissector_builder_area(tk.Frame):
     #Adds all the widgets.
     def _create_widgets(self):
         
-        canvas = tk.Canvas(self, width=850, height=550)
+        canvas = tk.Canvas(self, width=1050, height=550)
         self.canvas = canvas
 #        canvas.pack(expand=1, fill=tk.BOTH)
         canvas.grid(row=0,column=0)
 #        palette = Palette_frame(self)
         palette = self.create_palette(self)
-        palette_width = 200
-        palette.place(x = 0, y = 0, width = palette_width, height = 800)
+        palette_width = 190
+        self.palette_height = 350
+        palette.place(x = 0, y = 0, width = palette_width, height = self.palette_height)
+        clear_button = tk.Button(canvas, text = "Clear", command = self.clear_canvas)
+        clear_button.place(x = 0, y = self.palette_height + 10, height = 20, width = 70)
         
-
+    def clear_canvas(self):
+        self.canvas.delete("all")
+        for child in self.canvas.winfo_children():
+            child.destroy() 
+        clear_button = tk.Button(self.canvas, text = "Clear", command = self.clear_canvas)
+        
+        clear_button.place(x = 0, y = self.palette_height + 10, height = 20, width = 70)
 #        
     def handle_func(self, x, y, widget):
         self.add_button(self.canvas, widget['text'])
@@ -152,7 +154,7 @@ class Dissector_builder_area(tk.Frame):
         if object_type in ['Expression', 'Connector' , '<', '>', '<=', '>=', '==', '~=', 'And', 'Or', 'Not', 'Operand']:
 #            x, y = 175, 175
             button = tk.Label(canvas, text = object_type)
-            button.place(x = 175, y = 175, height = 12, width = 60)
+            button.place(x = 205, y = 175, height = 12, width = 60)
             dnd.add_dragable(button, x, y)
             
 
