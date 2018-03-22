@@ -28,6 +28,7 @@ class MenuWindow(tk.Frame):
         if self.root != None:
             popup = tk.Toplevel(self.root)
             create_proj = CreateProjectWindow(popup)
+
         else:
             print("No root set in menu.py")
 

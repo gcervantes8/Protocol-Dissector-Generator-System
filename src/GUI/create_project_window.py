@@ -70,14 +70,15 @@ class CreateProjectWindow(tk.Frame):
         print('Cancel button clicked')
         self.root.destroy()
 
-    def __init__(self, master=None):
-        self.root = master
-        master.title("New Project")
+    def __init__(self, master):
         tk.Frame.__init__(self)
+        self.root = master
+        self.root.title("New Project")
         self._create_widgets()
 
 
 if __name__ == "__main__":
     root = tk.Tk()
     app = CreateProjectWindow(master=root)
+    app.pack()
     app.mainloop()
