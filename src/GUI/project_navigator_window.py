@@ -10,6 +10,7 @@ Created on Fri Mar  2 13:29:57 2018
 """
 
 #TODO: change workspace_label to current workspace
+#TODO: Add projects based on working directory
 
 import Tkinter as tk
 
