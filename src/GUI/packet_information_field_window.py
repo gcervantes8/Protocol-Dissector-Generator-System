@@ -11,9 +11,9 @@ import Tkinter as tk
 import ttk
 
 class PacketInformationFieldWindow(tk.Frame):
-    def _new_entry(self,frame,c,r):
-        tk.Entry(frame, text=" ").grid(column=c, row=r+1)
-        tk.Entry(frame, text=" ").grid(column=c+1, row=r+1)
+    def _new_entry(self, frame, c, r):
+        tk.Entry(frame, text = " ").grid(column = c, row = r+1)
+        tk.Entry(frame, text = " ").grid(column = c+1, row = r+1)
 
     def init_window(self):
 
@@ -31,8 +31,13 @@ class PacketInformationFieldWindow(tk.Frame):
 
 
 
-    def __init__(self,parent):
+    def __init__(self, parent):
         tk.Frame.__init__(self,parent)
         self.root = parent
         self.init_window()
 
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = PacketInformationFieldWindow(root)
+    app.pack()
+    app.mainloop()

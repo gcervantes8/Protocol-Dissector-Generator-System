@@ -34,3 +34,9 @@ class PacketStreamAreaWindow(tk.Frame):
         tk.Frame.__init__(self,parent)
         self.root = parent
         self.init_window()
+        
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = PacketStreamAreaWindow(root)
+    app.pack()
+    app.mainloop()

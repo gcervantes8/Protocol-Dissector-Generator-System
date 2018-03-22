@@ -53,5 +53,12 @@ class DissectorScriptWindow(tk.Frame):
         self.root = parent
         self.dissector_format = StringVar(self)
         self.init_window()
+        
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = DissectorScriptWindow(parent=root)
+    app.pack()
+    app.mainloop()
+
 
 
