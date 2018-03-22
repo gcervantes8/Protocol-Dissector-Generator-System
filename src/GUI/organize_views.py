@@ -46,10 +46,10 @@ class OrganizeViews(tk.Frame):
             console_area_off.select()
 
         def confirm():
-            exit(0)
+            self.root.destroy()
 
         def cancel():
-            exit(0)
+            self.root.destroy()
 
         desc = tk.Label(self.root, text="Customize the views", pady=10)
         desc.pack()

@@ -25,10 +25,10 @@ class ImportProject(tk.Frame):
             project_entry.insert(0, projectname)
 
         def export_project():
-            exit(0)
+            self.root.destroy()
 
         def cancel():
-            exit(0)
+            self.root.destroy()
 
         desc = tk.Label(self.root, text="Import a project into the current workspace.", pady=10)
         desc.pack()

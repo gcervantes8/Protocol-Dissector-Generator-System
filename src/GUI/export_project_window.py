@@ -31,10 +31,10 @@ class ExportProject(tk.Frame):
             export_entry.insert(0, dirname)
 
         def export_project():
-            exit(0)
+            self.root.destroy()
 
         def cancel():
-            exit(0)
+            self.root.destroy()
 
         desc = tk.Label(self.root, text="Export project to the local file system.", pady=10)
         desc.pack()
@@ -50,15 +50,6 @@ class ExportProject(tk.Frame):
         export_browse_button = tk.Button(frame1, command=change_path, text="Browse", padx=10)
         export_button = tk.Button(frame1, command=export_project, text="Export", padx=10)
         cancel_button = tk.Button(frame1, command=cancel, text="Cancel", padx=10)
-
-        # project_label.pack()
-        # project_entry.pack()
-        # export_label.pack()
-        # export_entry.pack()
-        # project_browse_button.pack()
-        # export_browse_button.pack()
-        # export_button.pack()
-        # cancel_button.pack()
 
         project_label.grid(row=0, column=0, sticky=tk.E)
         project_entry.grid(row=0, column=1)

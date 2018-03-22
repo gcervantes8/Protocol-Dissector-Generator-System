@@ -8,20 +8,28 @@ Created on  Mar  15  2018
             Isaac Hoffman
             Christopher Soto
 """
-from Tkinter  import *
+
 import Tkinter as tk
+from create_project_window import CreateProjectWindow
 from export_project_window import ExportProject
 from import_project_window import ImportProject
 from dissector_script_window import DissectorScriptWindow
 from organize_views import OrganizeViews
 
+
 class MenuWindow(tk.Frame):
-    
     def set_main_window(self, root):
         self.root = root
 
     def buttonClick(self):
         print("Button clicked")
+
+    def create_click(self):
+        if self.root != None:
+            popup = tk.Toplevel(self.root)
+            create_proj = CreateProjectWindow(popup)
+        else:
+            print("No root set in menu.py")
 
     def export_click(self):
         if self.root != None:
@@ -59,7 +67,7 @@ class MenuWindow(tk.Frame):
             
     def init_window(self):
 
-        create_btn = tk.Button(self, text='Create Project', command=self.buttonClick)
+        create_btn = tk.Button(self, text='Create Project', command=self.create_click)
         create_btn.grid(column=0, row=0)
         save_btn = tk.Button(self, text='Save Project', command=self.buttonClick)
         save_btn.grid(column=1, row=0)

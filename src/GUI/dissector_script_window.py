@@ -17,12 +17,7 @@ class DissectorScriptWindow(tk.Frame):
         print(self.dissector_format.get())
 
     def init_window(self):
-
-        #root.wm_title('Dissector Script')
-
-
         tk.Label(self,text='Generate a custom dissector script from a selected project').grid(column=0,row=0)
-        #Project Browse
         tk.Label(self,text='Project').grid(column = 0, row = 1)
         project = tk.Entry(self)
         project.grid(column = 1 , row =1)
@@ -47,17 +42,21 @@ class DissectorScriptWindow(tk.Frame):
         tk.Button(self,text = 'Generate').grid(column = 2 , row = 4)
         tk.Button(self,text = 'Cancel').grid(column = 3 , row = 4)
 
-
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
         self.root = parent
+        self.root.title('Dissector Script')
+        w = self.root.winfo_screenwidth()
+        h = self.root.winfo_screenheight()
+        w = w / 2
+        h = h / 2
+        self.root.geometry("410x110+%d+%d" % (w - 150, h - 100))
         self.dissector_format = StringVar(self)
         self.init_window()
         
 if __name__ == "__main__":
     root = tk.Tk()
     app = DissectorScriptWindow(parent=root)
-    app.pack()
     app.mainloop()
 
 

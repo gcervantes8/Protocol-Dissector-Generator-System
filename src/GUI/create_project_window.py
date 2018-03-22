@@ -13,7 +13,7 @@ Created on Fri Mar  2 13:29:57 2018
 import Tkinter as tk
 
 
-class Create_project_window(tk.Frame):
+class CreateProjectWindow(tk.Frame):
     
     #Function create frame with label on left, and entry on the right
     #Returns the frame with label and entry, and returns the entry
@@ -27,14 +27,6 @@ class Create_project_window(tk.Frame):
         label.pack(side="left")
         
         return main_frame, entry
-    
-    def __init__(self, master=None):
-        
-        self.root = master
-        master.title("New Project")
-        tk.Frame.__init__(self)
-        self.pack()
-        self._create_widgets()
     
     #Adds all the widgets.
     def _create_widgets(self):
@@ -78,8 +70,14 @@ class Create_project_window(tk.Frame):
         print('Cancel button clicked')
         self.root.destroy()
 
+    def __init__(self, master=None):
+        self.root = master
+        master.title("New Project")
+        tk.Frame.__init__(self)
+        self._create_widgets()
+
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = Create_project_window(master=root)
+    app = CreateProjectWindow(master=root)
     app.mainloop()
