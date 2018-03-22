@@ -10,72 +10,60 @@ Created on Fri Mar  2 13:29:57 2018
 """
 
 import Tkinter as tk
-from tkFileDialog import askopenfilename
+import tkFileDialog
+import os
 
-class Import_Project(tk.Frame):
 
-    # Function create frame with label on left, and entry on the right
-    # Returns the frame with label and entry, and returns the entry
-    def _create_frame_with_entry(self, parent_frame, label_str):
-        main_frame = tk.Frame(parent_frame)
+class ImportProject(tk.Frame):
+    def _create_widgets(self):
 
-        entry = tk.Entry(main_frame)
-        entry.pack(side="right")
+        def change_project():
+            projectname = tkFileDialog.askopenfilename(defaultextension=".xml",
+                                                       filetypes=(("XML file", "*.xml"),
+                                                                  ("All Files", "*.*")))
+            project_entry.delete(0, tk.END)
+            project_entry.insert(0, projectname)
 
-        label = tk.Label(main_frame, text=label_str)
-        label.pack(side="left")
+        def export_project():
+            exit(0)
 
-        return main_frame, entry
+        def cancel():
+            exit(0)
 
-    def __init__(self, master=None):
-        self.root = master
-        master.title("Import Project")
-        tk.Frame.__init__(self)
-        self.pack()
+        desc = tk.Label(self.root, text="Import a project into the current workspace.", pady=10)
+        desc.pack()
+
+        frame1 = tk.Frame(self.root)
+        frame1.pack(side=tk.LEFT)
+
+        project_label = tk.Label(frame1, text="Import Project")
+        project_entry = tk.Entry(frame1, width=40)
+        project_browse_button = tk.Button(frame1, command=change_project, text="Browse", padx=10)
+        import_button = tk.Button(frame1, command=export_project, text="Import", padx=10)
+        cancel_button = tk.Button(frame1, command=cancel, text="Cancel", padx=10)
+
+        project_label.grid(row=0, column=0, sticky=tk.E)
+        project_entry.grid(row=0, column=1)
+        project_browse_button.grid(row=0, column=2, padx=10)
+        import_button.grid(row=2, column=1, sticky=tk.E)
+        cancel_button.grid(row=2, column=2, pady=10)
+
+    def __init__(self, parent):
+        tk.Frame.__init__(self, parent)
+        self.root = parent
+        self.root.title("Import Project")
+
+        # block to control where window opens
+        w = self.root.winfo_screenwidth()
+        h = self.root.winfo_screenheight()
+        w = w/2
+        h = h/2
+        self.root.geometry("410x110+%d+%d" % (w-150, h-100))
+
         self._create_widgets()
 
-    # Adds all the widgets.
-    def _create_widgets(self):
-        # Main window
-        main_window = tk.Frame(self)
-        main_window.pack(side="top")
-
-        # Create Label with text, and add to main_window
-        project_label = tk.Label(main_window, text="Import a project into the current workspace")
-
-        # Create frame with label, entry, and button to add to main_window
-        name_frame, self.name_entry = self._create_frame_with_entry(main_window, "Import project")
-        buttons_frame1 = tk.Frame(main_window)
-        tk.Button(buttons_frame1, text="Browse", command=self._browse_button).pack(side="right")
-
-        # Create frame and add 2 buttons to it.
-        buttons_frame2 = tk.Frame(main_window)
-        tk.Button(buttons_frame2, text="Import", command=self._import_button_clicked).pack(side="left")
-        tk.Button(buttons_frame2, text="Cancel", command=self._cancel_button_clicked).pack(side="right")
-
-        # Specify location of widgets on main window
-        project_label.grid(row=0, column=0)
-        name_frame.grid(row=1, column=0)
-        buttons_frame1.grid(row=1, column=1)
-        buttons_frame2.grid(row=3, column=0)
-
-    # Function to be called when import button is clicked
-    def _import_button_clicked(self):
-        print('Import button clicked')
-        project_path = self.name_entry.get()
-
-    # Function to be called when browse button is clicked
-    def _browse_button(self):
-        tk.Tk().withdraw()
-        self.filename = askopenfilename()
-        print(self.filename)
-
-    # Function to be called when cancel button is clicked
-    def _cancel_button_clicked(self):
-        print('Cancel button clicked')
-        self.root.destroy()
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = Import_Project(master=root)
+    app = ImportProject(parent=root)
     app.mainloop()
