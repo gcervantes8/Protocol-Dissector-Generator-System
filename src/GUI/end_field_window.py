@@ -10,6 +10,7 @@ Created on Fri Mar  2 13:29:57 2018
 """
 
 import Tkinter as tk
+from Tkinter import PhotoImage
 
 class End_field(tk.Frame):
 
