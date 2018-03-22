@@ -23,14 +23,15 @@ class ProjectNavigatorWindow(tk.Frame):
 
         frame1 = tk.Frame(self.root)
         frame1.pack(side=tk.LEFT)
-
+        project_button_0 = tk.Label(frame1, text="Project Navigator", padx=10)
         project_button_1 = tk.Button(frame1, command = self.continue_button_clicked, text="Project A", padx=10)
         project_button_2 = tk.Button(frame1, command = self.continue_button_clicked, text="Project B", padx=10)
         project_button_3 = tk.Button(frame1, command = self.continue_button_clicked, text="Project C", padx=10)
 
-        project_button_1.grid(row=0, column=0, padx=10)
-        project_button_2.grid(row=1, column=0, padx=10)
-        project_button_3.grid(row=2, column=0, padx=10)
+        project_button_0.grid(row=0, column=0, padx=10)
+        project_button_1.grid(row=1, column=0, padx=10)
+        project_button_2.grid(row=2, column=0, padx=10)
+        project_button_3.grid(row=3, column=0, padx=10)
 
     def continue_button_clicked(self):
         #Insert Opening project functionality
