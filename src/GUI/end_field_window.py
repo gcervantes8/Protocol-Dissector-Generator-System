@@ -28,6 +28,9 @@ class End_field(tk.Frame):
         # Main window
         main_window = tk.Frame(self)
         main_window.pack(side="top")
+        
+        test_label = tk.Label(main_window, text="End Field")
+        test_label.pack()
 
 
 
