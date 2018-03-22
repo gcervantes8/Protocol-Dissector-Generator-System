@@ -32,7 +32,7 @@ class CreateProjectWindow(tk.Frame):
     def _create_widgets(self):
         
         #Main window
-        main_window = tk.Frame(self)
+        main_window = tk.Frame(self.root)
         main_window.pack(side="top")
         
         #Create Label with text, and add to main_window
