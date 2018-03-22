@@ -4,6 +4,7 @@
 Created on  Mar  15  2018
 @author:    Daniel Ornelas
 """
+from Tkinter  import *
 import Tkinter as tk
 from export_project_window import ExportProject
 
@@ -16,10 +17,11 @@ class MenuWindow(tk.Frame):
         print("Button clicked")
 
     def testClick(self):
-#        window = tk.Toplevel(ExportProject)
         if self.root != None:
-            export_proj = ExportProject(self.root)
-            export_proj.pack()
+
+            popup = tk.Toplevel(self.root)
+            export_proj = ExportProject(popup)
+
         else:
             print("No root set in menu.py")
             

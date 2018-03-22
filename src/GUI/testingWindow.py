@@ -29,7 +29,6 @@ pif = PacketInformationFieldWindow(root)
 pif.pack()
 ds = DissectorScriptWindow(root)
 ds.pack()
-epw = ExportProject(root)
-epw.pack()
+
 
 root.mainloop()
