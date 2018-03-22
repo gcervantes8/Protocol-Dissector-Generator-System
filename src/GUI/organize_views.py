@@ -10,13 +10,14 @@ Created on  Mar  20  2018
             Christopher Soto
 """
 
-from Tkinter import *
+import Tkinter as tk
 
 
-class OrganizeViews():
-    def __init__(self, master=None):
-        self.root = master
+class OrganizeViews(tk.Frame):
+    def __init__(self, parent=None):
+        self.root = parent
         root.title("Organize Views")
+        tk.Frame.__init__(self)
 
         # block to control where window opens
         w = root.winfo_screenwidth()
@@ -64,58 +65,58 @@ class OrganizeViews():
         def cancel():
             exit(0)
 
-        desc = Label(root, text="Customize the views", pady=10)
+        desc = tk.Label(root, text="Customize the views", pady=10)
         desc.pack()
 
-        frame1 = Frame(root)
-        frame1.pack(side = LEFT)
+        frame1 = tk.Frame(root)
+        frame1.pack(side = tk.LEFT)
 
         #label section
-        hide_label = Label(frame1, text="Hide")
-        show_label = Label(frame1, text="Show")
-        project_nav = Label(frame1, text="Project Navigation")
-        dissector_build_area = Label(frame1, text="Dissector Building Area")
-        palette = Label(frame1, text="Palette")
-        packet_stream_area = Label(frame1, text="Packet Stream Area")
-        dissected_stream_area = Label(frame1, text="Dissected Stream Area")
-        raw_data_area = Label(frame1, text="Raw Data Area")
-        console_area = Label(frame1, text="Console Area")
+        hide_label = tk.Label(frame1, text="Hide")
+        show_label = tk.Label(frame1, text="Show")
+        project_nav = tk.Label(frame1, text="Project Navigation")
+        dissector_build_area = tk.Label(frame1, text="Dissector Building Area")
+        palette = tk.Label(frame1, text="Palette")
+        packet_stream_area = tk.Label(frame1, text="Packet Stream Area")
+        dissected_stream_area = tk.Label(frame1, text="Dissected Stream Area")
+        raw_data_area = tk.Label(frame1, text="Raw Data Area")
+        console_area = tk.Label(frame1, text="Console Area")
 
         #for radio buttons - need vars for each button
-        var1 = IntVar()
-        var2 = IntVar()
-        var3 = IntVar()
-        var4 = IntVar()
-        var5 = IntVar()
-        var6 = IntVar()
-        var7 = IntVar()
+        var1 = tk.IntVar()
+        var2 = tk.IntVar()
+        var3 = tk.IntVar()
+        var4 = tk.IntVar()
+        var5 = tk.IntVar()
+        var6 = tk.IntVar()
+        var7 = tk.IntVar()
 
         #each radio button saved to unique var, call to unique function on change
-        project_nav_off = Radiobutton(frame1, variable=var1, value=0, command=sel1)
-        project_nav_on = Radiobutton(frame1, variable=var1, value=1, command=sel1)
+        project_nav_off = tk.Radiobutton(frame1, variable=var1, value=0, command=sel1)
+        project_nav_on = tk.Radiobutton(frame1, variable=var1, value=1, command=sel1)
 
-        dissector_build_area_off = Radiobutton(frame1, variable=var2, value=0, command=sel2)
-        dissected_build_area_on = Radiobutton(frame1, variable=var2, value=1, command=sel2)
+        dissector_build_area_off = tk.Radiobutton(frame1, variable=var2, value=0, command=sel2)
+        dissected_build_area_on = tk.Radiobutton(frame1, variable=var2, value=1, command=sel2)
 
-        palette_off = Radiobutton(frame1, variable=var3, value=0, command=sel3)
-        palette_on = Radiobutton(frame1, variable=var3, value=1, command=sel3)
+        palette_off = tk.Radiobutton(frame1, variable=var3, value=0, command=sel3)
+        palette_on = tk.Radiobutton(frame1, variable=var3, value=1, command=sel3)
 
-        packet_stream_area_off = Radiobutton(frame1, variable=var4, value=0, command=sel4)
-        packet_stream_area_on = Radiobutton(frame1, variable=var4, value=1, command=sel4)
+        packet_stream_area_off = tk.Radiobutton(frame1, variable=var4, value=0, command=sel4)
+        packet_stream_area_on = tk.Radiobutton(frame1, variable=var4, value=1, command=sel4)
 
-        dissected_stream_area_off = Radiobutton(frame1, variable=var5, value=0, command=sel5)
-        dissected_stream_area_on = Radiobutton(frame1, variable=var5, value=1, command=sel5)
+        dissected_stream_area_off = tk.Radiobutton(frame1, variable=var5, value=0, command=sel5)
+        dissected_stream_area_on = tk.Radiobutton(frame1, variable=var5, value=1, command=sel5)
 
-        raw_data_area_off = Radiobutton(frame1, variable=var6, value=0, command=sel6)
-        raw_data_area_on = Radiobutton(frame1, variable=var6, value=1, command=sel6)
+        raw_data_area_off = tk.Radiobutton(frame1, variable=var6, value=0, command=sel6)
+        raw_data_area_on = tk.Radiobutton(frame1, variable=var6, value=1, command=sel6)
 
-        console_area_off = Radiobutton(frame1, variable=var7, value=0, command=sel7)
-        console_area_on = Radiobutton(frame1, variable=var7, value=1, command=sel7)
+        console_area_off = tk.Radiobutton(frame1, variable=var7, value=0, command=sel7)
+        console_area_on = tk.Radiobutton(frame1, variable=var7, value=1, command=sel7)
 
         #for buttons
-        default_button = Button(frame1, text="Restore to Default", command=defaults)
-        confirm_button = Button(frame1, text="Confirm", command=confirm)
-        cancel_button = Button(frame1, text="Cancel", command=cancel)
+        default_button = tk.Button(frame1, text="Restore to Default", command=defaults)
+        confirm_button = tk.Button(frame1, text="Confirm", command=confirm)
+        cancel_button = tk.Button(frame1, text="Cancel", command=cancel)
 
         #pack everything
         show_label.pack()
@@ -150,13 +151,13 @@ class OrganizeViews():
         #grid positioning
         hide_label.grid(row=0, column=1)
         show_label.grid(row=0, column=2)
-        project_nav.grid(row=1, column=0, sticky=E, pady=10)
-        dissector_build_area.grid(row=2, column=0, sticky=E, pady=10)
-        palette.grid(row=3, column=0, sticky=E, pady=10)
-        packet_stream_area.grid(row=4, column=0, sticky=E, pady=10)
-        dissected_stream_area.grid(row=5, column=0, sticky=E, pady=10)
-        raw_data_area.grid(row=6, column=0, sticky=E, pady=10)
-        console_area.grid(row=7, column=0, sticky=E, pady=10)
+        project_nav.grid(row=1, column=0, sticky=tk.E, pady=10)
+        dissector_build_area.grid(row=2, column=0, sticky=tk.E, pady=10)
+        palette.grid(row=3, column=0, sticky=tk.E, pady=10)
+        packet_stream_area.grid(row=4, column=0, sticky=tk.E, pady=10)
+        dissected_stream_area.grid(row=5, column=0, sticky=tk.E, pady=10)
+        raw_data_area.grid(row=6, column=0, sticky=tk.E, pady=10)
+        console_area.grid(row=7, column=0, sticky=tk.E, pady=10)
 
         project_nav_off.grid(row=1, column=1, padx=50)
         project_nav_on.grid(row=1, column=2, padx=50)
@@ -179,6 +180,6 @@ class OrganizeViews():
 
 
 if __name__ == "__main__":
-    root = Tk()
-    app = OrganizeViews(master=root)
+    root = tk.Tk()
+    app = OrganizeViews(parent=root)
     root.mainloop()

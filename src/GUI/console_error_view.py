@@ -10,13 +10,14 @@ Created on  Mar  21  2018
             Christopher Soto
 """
 
-from Tkinter import *
+import Tkinter as tk
 
 
-class ConsoleErrorView():
-    def __init__(self, master=None):
-        self.root = master
+class ConsoleErrorView(tk.Frame):
+    def __init__(self, parent=None):
+        self.root = parent
         root.title("Console Errors")
+        tk.Frame.__init__(self)
 
         # block to control where window opens
         w = root.winfo_screenwidth()
@@ -28,17 +29,17 @@ class ConsoleErrorView():
         self._create_widgets()
 
     def _create_widgets(self):
-        frame1 = Frame(root)
-        frame1.pack(side=LEFT)
+        frame1 = tk.Frame(root)
+        frame1.pack(side=tk.LEFT)
 
-        desc = Text(frame1, pady=10)
+        desc = tk.Text(frame1, pady=10)
         desc.pack()
 
-        desc.grid(row=0, column=0, sticky=NW)
+        desc.grid(row=0, column=0, sticky=tk.NW)
 
-        desc.insert(INSERT, "No error messages to display.")
+        desc.insert(tk.INSERT, "No error messages to display.")
 
 if __name__ == "__main__":
-    root = Tk()
-    app = ConsoleErrorView(master=root)
+    root = tk.Tk()
+    app = ConsoleErrorView(parent=root)
     root.mainloop()
