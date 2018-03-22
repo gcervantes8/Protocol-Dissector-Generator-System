@@ -5,16 +5,24 @@ Created on  Mar  15  2018
 @author:    Daniel Ornelas
 """
 import Tkinter as tk
-from export_project_window import *
+from export_project_window import ExportProject
 
 
 class MenuWindow(tk.Frame):
+    
+    def set_main_window(self, root):
+        self.root = root
     def buttonClick(self):
         print("Button clicked")
 
     def testClick(self):
-        window = tk.Toplevel(ExportProject)
-
+#        window = tk.Toplevel(ExportProject)
+        if self.root != None:
+            export_proj = ExportProject(self.root)
+            export_proj.pack()
+        else:
+            print("No root set in menu.py")
+            
     def init_window(self):
 
         create_btn = tk.Button(self, text='Create Project',command=self.buttonClick)
