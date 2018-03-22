@@ -74,7 +74,7 @@ class Dissector_builder_area(tk.Frame):
     #Adds all the widgets.
     def _create_widgets(self):
         
-        canvas = tk.Canvas(self)
+        canvas = tk.Canvas(self, width=850, height=550)
         self.canvas = canvas
 #        canvas.pack(expand=1, fill=tk.BOTH)
         canvas.grid(row=0,column=0)
@@ -144,7 +144,9 @@ class Dissector_builder_area(tk.Frame):
             
             field = PacketInformationFieldWindow(canvas)
 #            x, y = 175, 175
+            
             field.place(x = x, y = y, height = 330, width = 400)
+            canvas.tag_raise(field)
             dnd.add_dragable(field, x, y)
         
         if object_type in ['Expression', 'Connector' , '<', '>', '<=', '>=', '==', '~=', 'And', 'Or', 'Not', 'Operand']:
