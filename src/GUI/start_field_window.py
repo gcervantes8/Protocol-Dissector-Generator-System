@@ -30,12 +30,14 @@ class Start_Field_Window(tk.Frame):
         return main_frame, entry
     
     def __init__(self, master=None):
-        
+        print('b')
         self.root = master
-        self.root.title("Start Field [Protocol Name]")
+#        self.root.title("Start Field [Protocol Name]")
+        print('c')
         tk.Frame.__init__(self)
         self.pack()
         self.create_widgets()
+        print('d')
 
     def create_widgets(self):
         
@@ -55,30 +57,8 @@ class Start_Field_Window(tk.Frame):
         depend_pattern_frame.grid(row = 3, column = 0)
         buttons_frame.grid(row = 4, column = 0)
     
-        continue_button = tk.Button(buttons_frame, text = "Continue", command = self.continue_button_clicked)
-        cancel_button = tk.Button(buttons_frame, text = "Cancel", command = self.cancel_button_clicked)
         
-        continue_button.pack(side="left")
-        cancel_button.pack(side="right")
-        
-    def continue_button_clicked(self):
-        
-        print('Continue button click')
-        protocol_name = self.protocol_name_entry.get()
-        protocol_desc = self.protocol_desc_desc_entry.get()
-        dependent_protocol_name = self.dependent_protocol_name_entry.get()
-        dependency_pattern = self.dependency_pattern_entry.get()
-        
-        print("Protocol name: " + protocol_name)
-        print("Protocol description: " + protocol_desc)
-        print("Dependent Protocol name: " + dependent_protocol_name)
-        print("Dependency Pattern: " + dependency_pattern)
-        
-    def cancel_button_clicked(self):
-        
-        print('Cancel button click')
-        self.root.destroy()
-
-root = tk.Tk()
-app = Start_Field_Window(master=root)
-app.mainloop()
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = Start_Field_Window(master=root)
+    app.mainloop()

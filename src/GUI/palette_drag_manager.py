@@ -5,10 +5,10 @@ Created on Wed Mar 21 07:35:49 2018
 @author: Jerry C
 """
 
-class Drag_and_drop():
+class Palette_drag_and_drop():
     
     
-    def add_dragable(self, widget, original_x, original_y):
+    def add_dragable(self, widget, original_x, original_y, dissector_builder):
         widget.bind("<ButtonPress-1>", self.on_start)
         widget.bind("<B1-Motion>", self.on_drag)
         widget.bind("<ButtonRelease-1>", self.on_drop)
@@ -16,6 +16,7 @@ class Drag_and_drop():
         self.widget = widget
         self.x = original_x
         self.y = original_y
+        self.dissector_builder = dissector_builder
     def on_start(self, event):
         
         # you could use this method to create a floating window
@@ -63,7 +64,11 @@ class Drag_and_drop():
         
         target = event.widget.winfo_containing(new_x, new_y)
         try:
-            
+            print(self.dissector_builder)
+            print(self.dissector_builder.handle_func)
+            self.dissector_builder.handle_func(new_x, new_y, event.widget)
+#            self.dissector_builder.handle_func(new_x, new_y, event.widget)
+            print('no error')
 #            target.configure(image=event.widget.cget("image"))
             #if checks if stil in frame it was originally in
 #            print(target)
@@ -78,7 +83,7 @@ class Drag_and_drop():
             print('error')
             pass
         
-        #Places on new location
-        drag_widget.place(x = new_x, y = new_y)
-        self.x = new_x
-        self.y = new_y
+#        #Places on new location
+#        drag_widget.place(x = new_x, y = new_y)
+#        self.x = new_x
+#        self.y = new_y

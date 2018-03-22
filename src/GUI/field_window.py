@@ -52,7 +52,7 @@ class Field_window(tk.Frame):
     def __init__(self, master=None):
         
         self.root = master
-        self.root.title("Field [Abbrevation]")
+#        self.root.title("Field [Abbrevation]")
         tk.Frame.__init__(self)
         self.pack()
         self._create_widgets()
