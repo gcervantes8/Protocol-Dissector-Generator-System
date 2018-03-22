@@ -18,10 +18,8 @@ class MenuWindow(tk.Frame):
 
     def testClick(self):
         if self.root != None:
-
             popup = tk.Toplevel(self.root)
             export_proj = ExportProject(popup)
-
         else:
             print("No root set in menu.py")
             
