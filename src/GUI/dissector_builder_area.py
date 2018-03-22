@@ -33,9 +33,6 @@ class Dissector_builder_area(tk.Frame):
     def __init__(self, master=None):
         
         self.root = master
-        master.geometry("800x700")
-#        master.grid(row=0, column=1)
-#        master.pack(expand=1, fill=tk.BOTH)
         
         master.title("Dissector Builder Area")
         tk.Frame.__init__(self)
@@ -54,6 +51,7 @@ class Dissector_builder_area(tk.Frame):
         field_items = ['Start Field', 'Field(1 Byte)', 'Field(2 Byte)', 'Field(4 Byte)',
                  'Field(8 Byte)', 'Field(16 Byte)', 'Field(Var Byte)', 'End Field',
                  'Reference List', 'Packet Info.']
+        
         #whats inside folders
         for i, item in enumerate(field_items):
             dnd = Palette_drag_and_drop() #Should be in for loop
@@ -78,46 +76,19 @@ class Dissector_builder_area(tk.Frame):
         
         canvas = tk.Canvas(self)
         self.canvas = canvas
-        canvas.pack(expand=1, fill=tk.BOTH)
+#        canvas.pack(expand=1, fill=tk.BOTH)
+        canvas.geometry("1200x700")
+        canvas.grid(row=0,column=0)
 #        palette = Palette_frame(self)
         palette = self.create_palette(self)
         palette_width = 200
-        palette.place(x = 0, y = 0, width = palette_width, height = 700)
+        palette.place(x = 0, y = 0, width = palette_width, height = 800)
         
-        
-#        frame_A = tk.Frame(canvas, bg = 'green')
-#        buttonA = tk.Label(frame_A, text = "Button A")
-#        buttonB = tk.Label(canvas, text = "Button B")
-#        
-#        buttonC = tk.Label(canvas, text = "Button C")
-#        buttonD = tk.Label(canvas, text = "Button D")
-#        
-#        buttonA_x = 50
-#        buttonA_y = 50
-#        
-#        buttonB_x = 0
-#        buttonB_y = 0
-#        buttonA.place(x = buttonA_x, y = buttonA_y, height = 10, width = 60)
-#        frame_A.place(x = 150, y = 50, height = 300, width = 300)
-#        
-#        buttonB.place(x = buttonB_x, y = buttonB_x, height = 10, width = 60)
-#        
-#        buttonC.place(x = 100, y = 100, height = 10, width = 60)
-#        buttonD.place(x = 200, y = 200, height = 10, width = 60)
-##        
-#        
-#        dnd_buttonA = Drag_and_drop()
-#        dnd_buttonA.add_dragable(buttonA, buttonA_x, buttonA_y)
-#        dnd_buttonB = Drag_and_drop()
-#        dnd_buttonB.add_dragable(buttonB, buttonB_x, buttonB_y)
+
 #        
     def handle_func(self, x, y, widget):
         self.add_button(self.canvas, widget['text'])
-
         
-        
-#    def handle_func(A, B):
-#        print('Handle function called!!')
     def add_button(self, canvas, object_type):
         print(object_type)
         dnd = Drag_and_drop()
