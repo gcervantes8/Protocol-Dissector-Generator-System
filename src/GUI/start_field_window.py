@@ -34,7 +34,7 @@ class Start_Field_Window(tk.Frame):
         self.root = master
 #        self.root.title("Start Field [Protocol Name]")
         print('c')
-        tk.Frame.__init__(self)
+        tk.Frame.__init__(self, master)
         self.pack()
         self.create_widgets()
         print('d')
