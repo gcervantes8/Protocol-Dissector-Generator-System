@@ -7,8 +7,9 @@ Created on Wed Mar 21 22:05:42 2018
 
 import Tkinter as tk
 import ttk
+from moving_frame import MovingFrame
 
-class Reference_List_Window(tk.Frame):
+class Reference_List_Window(MovingFrame):
     def _new_entry(self, frame, c, r):
         tk.Entry(frame).grid(column = c, row = r+1)
         tk.Entry(frame).grid(column = c+1, row = r+1)
@@ -16,9 +17,9 @@ class Reference_List_Window(tk.Frame):
         self.row +=1
         self.add_button.grid(column=3,row=self.row)
         
-    def init_window(self):
+    def init_window(self,parent):
 
-        frame = tk.Frame(self)
+        frame = tk.Frame(parent)
         frame.pack()
         tk.Label(frame,text='Reference List Name').grid(column=0,row=0)
         entryRLN = ttk.Entry(frame)
@@ -35,16 +36,16 @@ class Reference_List_Window(tk.Frame):
 
 
     def __init__(self, parent):
-        tk.Frame.__init__(self,parent)
+
         self.root = parent
-#        self.root.title("Reference List [Reference List Name]")
+        mv = MovingFrame(self.root,"Reference List [Name]",200,200,300,300)
         self.column = 0
         self.row = 2
         self.add_button = None
-        self.init_window()
+        self.init_window(mv.f)
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = Reference_List_Window(root)
-    app.pack()
-    app.mainloop()
+    Reference_List_Window(root)
+
+    root.mainloop()

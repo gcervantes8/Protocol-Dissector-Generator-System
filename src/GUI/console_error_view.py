@@ -11,12 +11,14 @@ Created on  Mar  21  2018
 """
 
 import Tkinter as tk
+from moving_frame import MovingFrame
 
 
-class ConsoleErrorView(tk.Frame):
+class ConsoleErrorView(MovingFrame):
     def __init__(self, parent):
-        tk.Frame.__init__(self)
         self.root = parent
+        mv = MovingFrame(self.root,"Console Error View",0,450,500,200)
+
        # root.title("Console Errors")
 
         # block to control where window opens
@@ -26,10 +28,10 @@ class ConsoleErrorView(tk.Frame):
         # h = h/2
         # self.root.geometry("600x100+%d+%d" % (w-100, h-100))
 
-        self._create_widgets()
+        self._create_widgets(mv.f)
 
-    def _create_widgets(self):
-        frame1 = tk.Frame(self.root)
+    def _create_widgets(self,parent):
+        frame1 = tk.Frame(parent)
         frame1.pack()
 
         desc = tk.Text(frame1)
@@ -41,5 +43,5 @@ class ConsoleErrorView(tk.Frame):
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = ConsoleErrorView(parent=root)
+    ConsoleErrorView(root)
     root.mainloop()

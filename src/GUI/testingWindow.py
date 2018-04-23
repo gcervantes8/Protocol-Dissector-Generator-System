@@ -25,18 +25,17 @@ class MainWindow(tk.Frame):
         self.root.deiconify()
         menu = MenuWindow(self.root)
         menu.pack()
-        pnw = ProjectNavigatorWindow(self.root)
-        pnw.pack()
+        #Need to be moving frames
         dba = Dissector_builder_area(self.root)
         dba.pack()
         psa = PacketStreamAreaWindow(self.root)
         psa.pack()
-        dsw = Dissected_stream_window(self.root)
-        dsw.pack()
-        rdw = Raw_data_window(self.root)
-        rdw.pack()
-        cev = ConsoleErrorView(self.root)
-        cev.pack()
+        #READY
+        ProjectNavigatorWindow(self.root)
+        Dissected_stream_window(self.root)
+        Raw_data_window(self.root)
+        ConsoleErrorView(self.root)
+
 
 
 

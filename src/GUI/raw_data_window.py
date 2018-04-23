@@ -5,30 +5,27 @@ Created on Sat Mar 10 16:31:20 2018
 """
 
 import Tkinter as tk
+from moving_frame import MovingFrame
 
+class Raw_data_window(MovingFrame):
 
-class Raw_data_window(tk.Frame):
+    def __init__(self, parent):
+        self.root = parent
+        mv = MovingFrame(self.root,"Raw Data View",500,450,300,200)
+        self._create_widgets(mv.f)
 
-    def __init__(self, master=None):
-
-        self.root = master
-        self.root.title("Dissected Stream Area")
-        tk.Frame.__init__(self)
-        self.pack()
-        self._create_widgets()
-
-    def _create_widgets(self):
+    def _create_widgets(self,parent):
         # Frame
-        main_window = tk.Frame(self.root)
-        main_window.pack(side="top")
+        main_window = tk.Frame(parent)
+        main_window.pack()
 
         # Create text_frame with label instruction and text widget
-        text_frame = tk.Frame(self.root)
-        text_frame.pack(side="left")
+        text_frame = tk.Frame(main_window)
+        text_frame.pack()
 
         # Main text
         self.text = tk.Text(text_frame)
-        self.text.pack(side="bottom")
+        self.text.pack()
         self.add_text("RAW DATA")
 
         # Scroll bar
@@ -43,10 +40,5 @@ class Raw_data_window(tk.Frame):
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = Raw_data_window(root)
-    app.pack(fill="both", expand=True)
-
-    # Add text to dissected stream window
-    for i in range(30):
-        app.add_text( "0000  00 00 00 00 00 00    00 00 00 00 00 00 ...... ......\n");
+    Raw_data_window(root)
     root.mainloop()

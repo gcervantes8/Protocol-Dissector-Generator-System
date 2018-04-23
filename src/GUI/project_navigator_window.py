@@ -13,22 +13,21 @@ Created on Fri Mar  2 13:29:57 2018
 #TODO: Add projects based on working directory
 
 import Tkinter as tk
+from moving_frame import MovingFrame
 
-
-class ProjectNavigatorWindow(tk.Frame):
-    def _create_widgets(self):
+class ProjectNavigatorWindow(MovingFrame):
+    def _create_widgets(self,parent):
 
         # desc = tk.Label(self.root, text="Workspace X", pady=10)
         # desc.pack()
 
-        frame1 = tk.Frame(self.root)
+        frame1 = tk.Frame(parent)
         frame1.pack(side=tk.LEFT)
-        project_button_0 = tk.Label(frame1, text="Project Navigator", padx=10)
+
         project_button_1 = tk.Button(frame1, command = self.continue_button_clicked, text="Project A", padx=10)
         project_button_2 = tk.Button(frame1, command = self.continue_button_clicked, text="Project B", padx=10)
         project_button_3 = tk.Button(frame1, command = self.continue_button_clicked, text="Project C", padx=10)
 
-        project_button_0.grid(row=0, column=0, padx=10)
         project_button_1.grid(row=1, column=0, padx=10)
         project_button_2.grid(row=2, column=0, padx=10)
         project_button_3.grid(row=3, column=0, padx=10)
@@ -39,18 +38,16 @@ class ProjectNavigatorWindow(tk.Frame):
 
 
     def __init__(self, parent):
-        tk.Frame.__init__(self, parent)
         self.root = parent
-        self.root.title("Project Navigator")
-
+        mv = MovingFrame(self.root,"Project Navigator",0,100,150,200)
         # block to control where window opens
-        w = self.root.winfo_screenwidth()
-        h = self.root.winfo_screenheight()
-        w = w/2
-        h = h/2
-        self.root.geometry("150x150+%d+%d" % (w-75, h-200))
+        # w = self.root.winfo_screenwidth()
+        # h = self.root.winfo_screenheight()
+        # w = w/2
+        # h = h/2
+        # self.root.geometry("150x150+%d+%d" % (w-75, h-200))
 
-        self._create_widgets()
+        self._create_widgets(mv.f)
 
 
 if __name__ == "__main__":

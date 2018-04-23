@@ -6,24 +6,23 @@ Created on Sat Mar 10 16:31:20 2018
 """
 
 import Tkinter as tk
+from moving_frame import MovingFrame
 
-
-class Dissected_stream_window(tk.Frame):
+class Dissected_stream_window(MovingFrame):
     
-    def __init__(self, master=None):
+    def __init__(self, master):
         
         self.root = master
-        self.root.title("Dissected Stream Area")
-        tk.Frame.__init__(self)
-        self._create_widgets()
+        mv = MovingFrame(self.root,"Dissected Stream Area",800,450,250,200)
+        self._create_widgets(mv.f)
         
-    def _create_widgets(self):
+    def _create_widgets(self,parent):
         #Frame
-        main_window = tk.Frame(self.root)
+        main_window = tk.Frame(parent)
         main_window.pack(side="top")
         
         #Create text_frame with label instruction and text widget
-        text_frame = tk.Frame(self.root)
+        text_frame = tk.Frame(main_window)
         text_frame.pack(side = "left")
         
         #Create label with instruction to double click header
