@@ -40,18 +40,16 @@ class Dissected_stream_window(MovingFrame):
         self.text.tag_configure("header", background = "gray", foreground = "white") #Header look
         self.text.tag_bind("header", "<Double-1>", self._toggle_visibility)
         
-        #Scroll bar
-        # self.scrollbar = tk.Scrollbar(self, command = self.text.yview)
-        # self.scrollbar.pack(side="right", fill="y")
-        # self.text.configure(yscrollcommand = self.scrollbar.set)
+         #Scroll bar
+#        self.scrollbar = tk.Scrollbar(self, command = self.text.yview)
+#        self.scrollbar.pack(side="right", fill="y")
+#        self.text.configure(yscrollcommand = self.scrollbar.set)
 
     #Adds text to the dissected stream window, header and text are both str
     def add_text(self, header, text):
         self.text.insert("end", header + '\n', "header")
         self.text.insert("end", text + '\n\n')
         
-    def clear():
-        self.text
     #Toggles visibility
     def _toggle_visibility(self, event):
         block_start, block_end = self._get_block("insert")
