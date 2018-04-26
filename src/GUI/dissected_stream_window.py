@@ -13,13 +13,14 @@ class Dissected_stream_window(MovingFrame):
     def __init__(self, master):
         
         self.root = master
-        mv = MovingFrame(self.root,"Dissected Stream Area",800,450,250,200)
-        self._create_widgets(mv.f)
+        self.mv = MovingFrame(master, "Dissected Stream Area", 800, 450, 250, 200)
+        self._create_widgets(self.mv.f)
         
-    def _create_widgets(self,parent):
+    def _create_widgets(self, parent):
         #Frame
         main_window = tk.Frame(parent)
         main_window.pack(side="top")
+        self.main_window = main_window
         
         #Create text_frame with label instruction and text widget
         text_frame = tk.Frame(main_window)
@@ -46,9 +47,11 @@ class Dissected_stream_window(MovingFrame):
 
     #Adds text to the dissected stream window, header and text are both str
     def add_text(self, header, text):
-        self.text.insert("end", header, "header")
-        self.text.insert("end", text)
+        self.text.insert("end", header + '\n', "header")
+        self.text.insert("end", text + '\n\n')
         
+    def clear():
+        self.text
     #Toggles visibility
     def _toggle_visibility(self, event):
         block_start, block_end = self._get_block("insert")
@@ -75,9 +78,9 @@ class Dissected_stream_window(MovingFrame):
 if __name__ == "__main__":
     root = tk.Tk()
     app = Dissected_stream_window(root)
-    app.pack(fill = "both", expand = True)
+    app.mv.f.pack(fill = "both", expand = True)
     
     #Add text to dissected stream window
     for i in range(10):
-            app.add_text("Header %s\n" % i, "Protocol info placeholder\nMore protocol info placeholder\n\n");
+            app.add_text("Header %s" % i, "Protocol info placeholder\nMore protocol info placeholder");
     root.mainloop()
