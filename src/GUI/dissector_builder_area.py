@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Fri Mar  2 13:29:57 2018
-
 @author: Gerardo Cervantes
          Oliver Martinez
          Isaac Hoffman
@@ -19,6 +18,7 @@ from field_window import Field_window
 from end_field_window import End_field
 from reference_list_field import Reference_List_Window
 from packet_information_field_window import PacketInformationFieldWindow
+from expression_frame import Expression_frame
 
 
 class Dissector_builder_area(tk.Frame):
@@ -150,8 +150,14 @@ class Dissector_builder_area(tk.Frame):
             field.place(x = x, y = y, height = 330, width = 400)
             canvas.tag_raise(field)
             dnd.add_dragable(field, x, y)
+            
+        if object_type == 'Expression':
+            expression_frame = Expression_frame(canvas)
+            expression_frame.place(x = x, y = y, height = 100, width = 200)
+#            canvas.tag_raise(field)
+            dnd.add_dragable(expression_frame, x, y)
         
-        if object_type in ['Expression', 'Connector' , '<', '>', '<=', '>=', '==', '~=', 'And', 'Or', 'Not', 'Operand']:
+        if object_type in ['Connector' , '<', '>', '<=', '>=', '==', '~=', 'And', 'Or', 'Not', 'Operand']:
 #            x, y = 175, 175
             button = tk.Label(canvas, text = object_type)
             button.place(x = 205, y = 175, height = 12, width = 60)
