@@ -27,7 +27,7 @@ class End_field(tk.Frame):
     def _create_widgets(self):
         # Main window
         main_window = tk.Frame(self)
-        main_window.pack(side="top")
+        main_window.pack(side = tk.BOTTOM)
         
         test_label = tk.Label(main_window, text="End Field")
         test_label.pack()

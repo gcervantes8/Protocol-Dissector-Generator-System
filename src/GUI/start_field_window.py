@@ -29,20 +29,17 @@ class Start_Field_Window(tk.Frame):
         
         return main_frame, entry
     
-    def __init__(self, master=None):
-        print('b')
+    def __init__(self, master = None):
         self.root = master
 #        self.root.title("Start Field [Protocol Name]")
-        print('c')
         tk.Frame.__init__(self, master)
         self.pack()
         self.create_widgets()
-        print('d')
 
     def create_widgets(self):
         
         main_window = tk.Frame(self)
-        main_window.pack(side="top")
+        main_window.pack(side = tk.BOTTOM)
         
         name_frame, self.protocol_name_entry = self.create_frame_with_entry(main_window, "Protocol Name")
         desc_frame, self.protocol_desc_desc_entry = self.create_frame_with_entry(main_window, "Protocol Description")

@@ -8,7 +8,6 @@ Created on  Mar  15  2018
 """
 
 import Tkinter as tk
-import ttk
 
 class PacketInformationFieldWindow(tk.Frame):
     def _new_entry(self, frame, c, r):
@@ -17,25 +16,24 @@ class PacketInformationFieldWindow(tk.Frame):
         self.column = 0
         self.row +=1
         self.add_button.grid(column = 3,row = self.row)
+        
     def init_window(self):
 
-        #root.wm_title('Packet Information')
-
         frame = tk.Frame(self)
-        frame.pack()
-        tk.Label(frame,text='Value').grid(column=0,row=0)
-        tk.Label(frame,text='Description').grid(column=1, row=0)
-        entry1 = ttk.Entry(frame)
-        entry1.grid(column = 0 , row = 1)
-        entry2 = ttk.Entry(frame)
-        entry2.grid(column = 1 , row = 1)
-        self.add_button =tk.Button(frame, text="+",command = lambda: self._new_entry(frame,self.column,self.row))
+        frame.pack(side = tk.BOTTOM)
+        tk.Label(frame, text = 'Value').grid(column = 0,row = 0)
+        tk.Label(frame, text = 'Description').grid(column = 1, row = 0)
+        entry1 = tk.Entry(frame)
+        entry1.grid(column = 0, row = 1)
+        entry2 = tk.Entry(frame)
+        entry2.grid(column = 1, row = 1)
+        self.add_button = tk.Button(frame, text="+", command = lambda: self._new_entry(frame,self.column,self.row))
         self.add_button.grid(column = 3, row = 1)
 
 
 
     def __init__(self, parent):
-        tk.Frame.__init__(self,parent)
+        tk.Frame.__init__(self, parent)
         self.root = parent
         self.column = 0
         self.row = 1

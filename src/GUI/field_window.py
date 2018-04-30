@@ -49,18 +49,18 @@ class Field_window(tk.Frame):
         
         return main_frame, checkbutton
     
-    def __init__(self, master=None):
+    def __init__(self, master = None):
         
         self.root = master
 #        self.root.title("Field [Abbrevation]")
-        tk.Frame.__init__(self)
+        tk.Frame.__init__(self, master)
         self.pack()
         self._create_widgets()
 
     def _create_widgets(self):
         
         main_window = tk.Frame(self)
-        main_window.pack(side="top")
+        main_window.pack(side = tk.BOTTOM)
         
         #Placeholder for options that the dropdown menus will have
         OPTIONS = ["Option 1","Option 2","Option 3"]
