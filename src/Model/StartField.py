@@ -13,8 +13,8 @@ from Construct import Construct
 class StartField(Construct):
     
     def __init__(self, protocol_name, protocol_description):
-        self.set_protocol_name(self, protocol_name)
-        self.set_protocol_description(self, protocol_description)
+        self.set_protocol_name(protocol_name)
+        self.set_protocol_description(protocol_description)
     
     def set_protocol_name(self, protocol_name):
         self.protocol_name = protocol_name
