@@ -13,28 +13,23 @@ class DecisionConstruct():
     
     def __init__(self):
         pass
-    
-    def set_expression(self, expression):
-        if issubclass(expression, Expression):
-            self.expression = expression
-        else:
-            self.expression = None
         
-    def get_expression(self):
+    def set_expressions(self, expressions):
+        
+        if type(expressions) is list:
+                for exp in expressions:
+                    if not issubclass(type(exp), Expression):
+                        self.expressions = None
+                        return
+        self.expressions = expressions
+        
+    def get_expressions(self):
         try:
-            return self.expression
+            return self.expressions
         except NameError:
             return None
 
-    def get_logical_operator(self):        
-        try:
-            return self.logical_operator
-        except NameError:
-            return None
-    
-    def set_logical_operator(self, logical_operator):
-        if logical_operator in ['And', 'Or', 'Not']:
-            self.logical_operator = logical_operator
+
             
     
         

@@ -26,8 +26,15 @@ class Field():
 
 
     def get_field_info(self):
-        
-        return self.name + ',' + self.abbrev + ',' + self.desc + ',' + self.data_type + ',' + self.base + ',' + self.mask + ',' + self.value_constraint + ',' + self.is_required 
+        name = self.name.replace(',', ';')
+        abbrev = self.abbrev.replace(',', ';')
+        desc = self.desc.replace(',', ';')
+        data_type = self.data_type.replace(',', ';')
+        base = self.base.replace(',', ';')
+        mask = self.mask.replace(',', ';')
+        value_constraint = self.value_constraint.replace(',', ';')
+        is_required = self.is_required.replace(',', ';')
+        return name + ',' + abbrev + ',' + desc + ',' + data_type + ',' + base + ',' + mask + ',' + value_constraint + ',' + is_required 
         
     def set_ref_list(self, ref_list):
         if issubclass(ref_list, ReferenceList):
