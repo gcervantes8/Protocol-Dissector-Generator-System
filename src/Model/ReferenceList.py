@@ -11,10 +11,12 @@ Created on Wed Apr 18 22:24:50 2018
 class ReferenceList():
     
     def __init__(self, name):
+        self.isRefList = True
         self.set_name(name)
     
     def set_name(self, name):
-        self.name = name
+        if issubclass(type(name), str):
+            self.name = name
         
     #List of values
     def set_values(self, values):

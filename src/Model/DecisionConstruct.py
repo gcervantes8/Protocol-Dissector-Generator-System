@@ -7,18 +7,24 @@ Created on Wed Apr 25 20:35:55 2018
 """
 
 from Expression import Expression
+from Construct import Construct
 
-
-class DecisionConstruct():
+class DecisionConstruct(Construct):
     
     def __init__(self):
-        pass
+        super(DecisionConstruct, self).__init__()
         
     def set_expressions(self, expressions):
         
         if type(expressions) is list:
                 for exp in expressions:
-                    if not issubclass(type(exp), Expression):
+                    print('an expr')
+                    try:
+                        isExpression = exp.isExpression
+                    except AttributeError:
+                        isExpression = False
+                        
+                    if not isExpression:
                         self.expressions = None
                         return
         self.expressions = expressions
@@ -26,12 +32,22 @@ class DecisionConstruct():
     def get_expressions(self):
         try:
             return self.expressions
-        except NameError:
+        except AttributeError:
             return None
 
-
+    #Used for dictionary of objects in protocol
+    def __hash__(self):
+        if self.get_expressions():
+            return hash(None)
+        return hash(self.get_expressions()[0])
             
-    
+    #Used for dictionary of objects in protocol
+    def __eq__(self, other):
+        try:
+            expr = other.get_expressions()
+        except AttributeError:
+            return False
+        return self.get_expressions() == expr
         
-    
+        
     
