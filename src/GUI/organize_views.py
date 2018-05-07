@@ -28,11 +28,6 @@ class OrganizeViews(tk.Frame):
         def sel4():
             selection = var4.get()
 
-            if selection == 0:
-                print("0")
-            else:
-                print("1")
-
         def sel5():
             selection = var5.get()
 
@@ -43,13 +38,13 @@ class OrganizeViews(tk.Frame):
             selection = var7.get()
 
         def defaults():
-            project_nav_off.select()
-            dissector_build_area_off.select()
-            palette_off.select()
-            packet_stream_area_off.select()
-            dissected_stream_area_off.select()
-            raw_data_area_off.select()
-            console_area_off.select()
+            project_nav_on.select()
+            dissected_build_area_on.select()
+            palette_on.select()
+            packet_stream_area_on.select()
+            dissected_stream_area_on.select()
+            raw_data_area_on.select()
+            console_area_on.select()
 
         def confirm():
             self.root.destroy()
@@ -74,14 +69,14 @@ class OrganizeViews(tk.Frame):
         raw_data_area = tk.Label(frame1, text="Raw Data Area")
         console_area = tk.Label(frame1, text="Console Area")
 
-        #for radio buttons - need vars for each button
-        var1 = tk.IntVar()
-        var2 = tk.IntVar()
-        var3 = tk.IntVar()
-        var4 = tk.IntVar()
-        var5 = tk.IntVar()
-        var6 = tk.IntVar()
-        var7 = tk.IntVar()
+        #for radio buttons - need vars for each button. default to on position
+        var1 = tk.IntVar(None, 1)
+        var2 = tk.IntVar(None, 1)
+        var3 = tk.IntVar(None, 1)
+        var4 = tk.IntVar(None, 1)
+        var5 = tk.IntVar(None, 1)
+        var6 = tk.IntVar(None, 1)
+        var7 = tk.IntVar(None, 1)
 
         #each radio button saved to unique var, call to unique function on change
         project_nav_off = tk.Radiobutton(frame1, variable=var1, value=0, command=sel1)
