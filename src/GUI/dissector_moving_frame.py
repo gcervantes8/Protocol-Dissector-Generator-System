@@ -23,8 +23,8 @@ class MovingFrame:
         dy = event.y_root - self.move_lasty
         self.move_lastx = event.x_root
         self.move_lasty = event.y_root
-        self.x = clamp(0, 640-200, self.x + dx) # should depend on
-        self.y = clamp(0, 480-200, self.y + dy) # actual size here
+        self.x = clamp(190, 800, self.x + dx) # should depend on
+        self.y = clamp(20, 480-40, self.y + dy) # actual size here
         self.f.place_configure(x = self.x, y = self.y)
 
     def __init__(self, root, window, title, x, y):

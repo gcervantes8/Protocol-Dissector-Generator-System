@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="414096b2-8a84-4f6c-9eef-6d553c48e7c4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Protocol-Dissector-Generator-System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Protocol-Dissector-Generator-System.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/organize_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/organize_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/dissector_moving_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/dissector_moving_frame.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,14 +13,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Protocol_Dissector_Generator_System$dissector_builder_area.coverage" NAME="dissector_builder_area Coverage Results" MODIFIED="1525651241716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/GUI" />
-    <SUITE FILE_PATH="coverage/Protocol_Dissector_Generator_System$dissector_moving_frame.coverage" NAME="dissector_moving_frame Coverage Results" MODIFIED="1525650411590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/GUI" />
+    <SUITE FILE_PATH="coverage/Protocol_Dissector_Generator_System$dissector_builder_area.coverage" NAME="dissector_builder_area Coverage Results" MODIFIED="1525655961186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/GUI" />
+    <SUITE FILE_PATH="coverage/Protocol_Dissector_Generator_System$dissector_moving_frame.coverage" NAME="dissector_moving_frame Coverage Results" MODIFIED="1525655715970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/GUI" />
     <SUITE FILE_PATH="coverage/Protocol_Dissector_Generator_System$import_project_window.coverage" NAME="import_project_window Coverage Results" MODIFIED="1525650373397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/GUI" />
     <SUITE FILE_PATH="coverage/Protocol_Dissector_Generator_System$console_error_view.coverage" NAME="console_error_view Coverage Results" MODIFIED="1524518591275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/GUI" />
     <SUITE FILE_PATH="coverage/Protocol_Dissector_Generator_System$field_window.coverage" NAME="field_window Coverage Results" MODIFIED="1525651421473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/GUI" />
     <SUITE FILE_PATH="coverage/Protocol_Dissector_Generator_System$moving_frame.coverage" NAME="moving_frame Coverage Results" MODIFIED="1525650297482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/GUI" />
     <SUITE FILE_PATH="coverage/Protocol_Dissector_Generator_System$project_navigator_window.coverage" NAME="project_navigator_window Coverage Results" MODIFIED="1525647714655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/GUI" />
     <SUITE FILE_PATH="coverage/Protocol_Dissector_Generator_System$raw_data_window.coverage" NAME="raw_data_window Coverage Results" MODIFIED="1524520465252" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/GUI" />
+    <SUITE FILE_PATH="coverage/Protocol_Dissector_Generator_System$open_pcap_window.coverage" NAME="open_pcap_window Coverage Results" MODIFIED="1525655604393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/GUI" />
     <SUITE FILE_PATH="coverage/Protocol_Dissector_Generator_System$packet_stream_area_view_window.coverage" NAME="packet_stream_area_view_window Coverage Results" MODIFIED="1524519618127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/GUI" />
     <SUITE FILE_PATH="coverage/Protocol_Dissector_Generator_System$example_protocol.coverage" NAME="example_protocol Coverage Results" MODIFIED="1525647669668" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Model" />
     <SUITE FILE_PATH="coverage/Protocol_Dissector_Generator_System$organize_views.coverage" NAME="organize_views Coverage Results" MODIFIED="1525651986656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/GUI" />
@@ -36,20 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="dissector_moving_frame.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dissector_moving_frame.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GUI/dissector_moving_frame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="organize_views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/GUI/organize_views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="71" column="78" selection-start-line="71" selection-start-column="78" selection-end-line="71" selection-end-column="78" />
+            <state relative-caret-position="323">
+              <caret line="25" column="64" lean-forward="true" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -101,6 +91,7 @@
         <option value="$PROJECT_DIR$/src/GUI/dissected_stream_window.py" />
         <option value="$PROJECT_DIR$/src/GUI/project_navigator_window.py" />
         <option value="$PROJECT_DIR$/src/GUI/organize_views.py" />
+        <option value="$PROJECT_DIR$/src/GUI/dissector_moving_frame.py" />
       </list>
     </option>
   </component>
@@ -114,8 +105,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="599" />
-    <option name="y" value="154" />
+    <option name="x" value="401" />
+    <option name="y" value="117" />
     <option name="width" value="1186" />
     <option name="height" value="829" />
   </component>
@@ -175,7 +166,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.organize_views">
+  <component name="RunManager" selected="Python.dissector_builder_area">
     <configuration name="2.7" type="PythonConfigurationType" factoryName="Python">
       <module name="Protocol-Dissector-Generator-System" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -233,25 +224,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="dissector_script_window" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Protocol-Dissector-Generator-System" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/GUI" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/GUI/dissector_script_window.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="field_window" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Protocol-Dissector-Generator-System" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -266,6 +238,25 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/GUI/field_window.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="open_pcap_window" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Protocol-Dissector-Generator-System" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/GUI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/GUI/open_pcap_window.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -292,19 +283,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2.7" />
-      <item itemvalue="Python.dissector_script_window" />
       <item itemvalue="Python.dissector_moving_frame" />
       <item itemvalue="Python.dissector_builder_area" />
       <item itemvalue="Python.field_window" />
       <item itemvalue="Python.organize_views" />
+      <item itemvalue="Python.open_pcap_window" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.organize_views" />
-        <item itemvalue="Python.field_window" />
         <item itemvalue="Python.dissector_builder_area" />
         <item itemvalue="Python.dissector_moving_frame" />
-        <item itemvalue="Python.dissector_script_window" />
+        <item itemvalue="Python.open_pcap_window" />
+        <item itemvalue="Python.organize_views" />
+        <item itemvalue="Python.field_window" />
       </list>
     </recent_temporary>
   </component>
@@ -431,19 +422,26 @@
       <option name="project" value="LOCAL" />
       <updated>1521696297122</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="updated organize view to default to on position">
+      <created>1525653738556</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1525653738556</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="599" y="154" width="1186" height="829" extended-state="0" />
+    <frame x="401" y="117" width="1186" height="829" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5008881" side_tool="true" weight="0.19942197" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3294964" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.4295393" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19942197" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4991119" visible="true" weight="0.19942197" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32967034" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29928952" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
@@ -502,7 +500,8 @@
     <MESSAGE value="fixed for cancel/confirm buttons" />
     <MESSAGE value="messing with create project" />
     <MESSAGE value="create project working from main window" />
-    <option name="LAST_COMMIT_MESSAGE" value="create project working from main window" />
+    <MESSAGE value="updated organize view to default to on position" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated organize view to default to on position" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -808,17 +807,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/dissector_moving_frame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/organize_views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="71" column="78" selection-start-line="71" selection-start-column="78" selection-end-line="71" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/dissector_moving_frame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="25" column="64" lean-forward="true" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
         </state>
       </provider>
     </entry>
