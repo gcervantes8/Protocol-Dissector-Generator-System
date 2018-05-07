@@ -11,7 +11,7 @@ Created on Fri Mar  2 13:29:57 2018
 
 import Tkinter as tk
 from tkFileDialog import askdirectory
-from projectManager import projectManager
+from src.Model.ProjectManager import ProjectManager
 
 
 class Workspace_save_window(tk.Frame):

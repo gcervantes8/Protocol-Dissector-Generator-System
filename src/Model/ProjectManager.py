@@ -2,7 +2,7 @@ from Workspace import Workspace
 from Project import Project
 
 w1 = Workspace()
-class projectManager():
+class ProjectManager():
 
     def guiInfo(self,workspace_name, path, project_name, desc, layout, getter):
         if(workspace_name != None):
