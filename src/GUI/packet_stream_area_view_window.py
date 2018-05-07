@@ -14,8 +14,10 @@ class PacketStreamAreaWindow(tk.Frame):
         col = 0
         row = 1
         for packet in PCAP:
+            color="red"#this is the line we will change to change color packet.color
+            tk.Frame(position, bg=color).grid(row=row, column=0, columnspan=6, sticky='nesw')
             for val in packet:
-                tk.Label(position, text=val).grid(column=col, row=row)
+                tk.Label(position, text=val,bg=color).grid(column=col, row=row)
                 col += 1
             row += 1
             col = 0
