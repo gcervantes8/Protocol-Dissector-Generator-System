@@ -10,6 +10,7 @@ Created on Fri Mar  2 13:29:57 2018
 """
 
 import Tkinter as tk
+import os
 from tkFileDialog import askdirectory
 from src.Model.ProjectManager import ProjectManager
 
