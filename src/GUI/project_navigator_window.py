@@ -24,7 +24,7 @@ class ProjectNavigatorWindow(MovingFrame):
 
         frame1 = tk.Frame(parent)
         frame1.pack(side=tk.LEFT)
-a = ProjectManager.current.guiInfo(None,None,None,None,None,2)
+        a = ProjectManager.current.guiInfo(None,None,None,None,None,2)
 
         self.ProjectButtons = []
         for i in range(len(a)):
