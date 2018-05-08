@@ -11,6 +11,7 @@ Created on Fri Mar  2 13:29:57 2018
 """
 
 import Tkinter as tk
+from src.Model.ProjectManager import ProjectManager
 
 
 class CreateProjectWindow(tk.Frame):
@@ -61,9 +62,11 @@ class CreateProjectWindow(tk.Frame):
         print('Create button clicked')
         project_name = self.name_entry.get()
         project_desc = self.desc_entry.get()
+        ProjectManager.current.guiInfo(None,None,project_name,project_desc,None,None)
         
         print("Project name: " + project_name + "\n Project description: " + project_desc)
-        
+        self.root.destroy()
+         
     #Function to be called when cancel button is clicked
     def _cancel_button_clicked(self):
         
