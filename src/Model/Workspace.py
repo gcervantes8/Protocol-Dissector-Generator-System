@@ -16,8 +16,8 @@ class Workspace(object):
         a = []
         for root, dirs, files in os.walk(self.path):
             for file in files:
-                if file.endswith(".txt"): # .txt just to test change to .xml later
-                    a.append(os.path.join(root, file))
+                if file.endswith(".xml"): # .txt just to test change to .xml later
+                    a.append(file)
         return a
 
 
