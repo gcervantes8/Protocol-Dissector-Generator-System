@@ -1,5 +1,4 @@
 import os
-from Project import Project
 
 class Workspace(object):
     path = str()
