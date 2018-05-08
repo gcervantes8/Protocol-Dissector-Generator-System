@@ -14,6 +14,7 @@ Created on Fri Mar  2 13:29:57 2018
 
 import Tkinter as tk
 from moving_frame import MovingFrame
+from src.Model.ProjectManager import ProjectManager
 
 class ProjectNavigatorWindow(MovingFrame):
     def _create_widgets(self,parent):
@@ -23,14 +24,12 @@ class ProjectNavigatorWindow(MovingFrame):
 
         frame1 = tk.Frame(parent)
         frame1.pack(side=tk.LEFT)
+a = ProjectManager.current.guiInfo(None,None,None,None,None,2)
 
-        project_button_1 = tk.Button(frame1, command = self.continue_button_clicked, text="Project A", padx=10)
-        project_button_2 = tk.Button(frame1, command = self.continue_button_clicked, text="Project B", padx=10)
-        project_button_3 = tk.Button(frame1, command = self.continue_button_clicked, text="Project C", padx=10)
-
-        project_button_1.grid(row=1, column=0, padx=10)
-        project_button_2.grid(row=2, column=0, padx=10)
-        project_button_3.grid(row=3, column=0, padx=10)
+        self.ProjectButtons = []
+        for i in range(len(a)):
+            self.ProjectButtons.append(tk.Button(frame1, command = self.continue_button_clicked, text=a[i], padx=10))
+            self.ProjectButtons[i].grid(row=i+1, column=0, padx=10)
 
     def continue_button_clicked(self):
         #Insert Opening project functionality
