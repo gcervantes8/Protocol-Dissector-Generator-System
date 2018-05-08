@@ -13,6 +13,7 @@ Created on Fri Mar  2 13:29:57 2018
 #TODO: Add projects based on working directory
 
 import Tkinter as tk
+import os
 from moving_frame import MovingFrame
 from src.Model.ProjectManager import ProjectManager
 
