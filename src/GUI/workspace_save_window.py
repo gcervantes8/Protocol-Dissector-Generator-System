@@ -74,9 +74,10 @@ class Workspace_save_window(tk.Frame):
     # Function to be called when create button is clicked
     def _create_button_clicked(self):
         print('Launch button clicked')
-        manager1 = projectManager()
+        manager1 = ProjectManager()
         manager1.guiInfo(os.path.dirname(self.filename),self.filename,None,None,None,None)
         manager1.guiInfo(None,None,None,None,None,2)
+        ProjectManager.current = manager1
         self.main_win.init_window()
         self.root.destroy()
 
