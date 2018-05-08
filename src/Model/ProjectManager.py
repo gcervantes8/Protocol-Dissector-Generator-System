@@ -5,16 +5,21 @@ w1 = Workspace()
 class ProjectManager():
 
     def guiInfo(self,workspace_name, path, project_name, desc, layout, getter):
+        project = Project();
         if(workspace_name != None):
             if(path != None):
                 w1.setPath(path)
                 w1.setName(workspace_name)
+                Workspace.current = w1
             else:
                 print ("Invalid1")
                 return
         elif (project_name != None):
             if(desc != None):
-                print"calling project to create a project"
+                project.setName(project_name)
+                project.setDesc(desc)
+                project.createProject()
+                Project.current = project
             else:
                 print ("Invalid2")
                 return
@@ -27,7 +32,7 @@ class ProjectManager():
                 w1.getName()
             elif(getter == 2):
                 a = w1.get_projects_lists()
-                print ("\n" . join(a))
+                return a
             #elif(getter == 3):
              #   Project.getDesc()
             else:
