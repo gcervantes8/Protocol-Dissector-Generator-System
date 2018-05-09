@@ -14,7 +14,7 @@ import os
 from tkFileDialog import askdirectory
 import sys
 sys.path.insert(0, '../Model')
-from ProjectManager import ProjectManager
+from src.Model.ProjectManager import ProjectManager
 
 class Workspace_save_window(tk.Frame):
 
