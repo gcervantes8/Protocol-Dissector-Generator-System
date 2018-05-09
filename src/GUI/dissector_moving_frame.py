@@ -51,6 +51,9 @@ class MovingFrame:
                 w.l.configure(bg="#08246b", fg="white")
             else:
                 w.l.configure(bg="#d9d9d9", fg="black")
+                              
+    def getPosition(self):
+        return self.x, self.y
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("...")

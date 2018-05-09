@@ -21,6 +21,10 @@ from packet_information_field_window import PacketInformationFieldWindow
 from expression_frame import Expression_frame
 from dissector_moving_frame import MovingFrame
 
+import xml.etree.cElementTree as ET
+import xml.dom.minidom
+
+
 class Dissector_builder_area(tk.Frame):
     
     def __init__(self, master=None):
@@ -133,7 +137,10 @@ class Dissector_builder_area(tk.Frame):
             
         frame.place(x = x, y = y, height = h, width = w)
         mv = MovingFrame(canvas, frame, object_type, x, y)
-            
+        
+        # save frame and frame posisiton
+        
+        
 
 if __name__ == "__main__":
     root = tk.Tk()

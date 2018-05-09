@@ -11,7 +11,9 @@ Created on Fri Mar  2 13:29:57 2018
 """
 
 import Tkinter as tk
-from src.Model.ProjectManager import ProjectManager
+import sys
+sys.path.insert(0, '../Model')
+from ProjectManager import ProjectManager
 
 
 class CreateProjectWindow(tk.Frame):

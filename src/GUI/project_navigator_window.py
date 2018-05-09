@@ -15,7 +15,9 @@ Created on Fri Mar  2 13:29:57 2018
 import Tkinter as tk
 import os
 from moving_frame import MovingFrame
-from src.Model.ProjectManager import ProjectManager
+import sys
+sys.path.insert(0, '../Model')
+from ProjectManager import ProjectManager
 
 class ProjectNavigatorWindow(MovingFrame):
     def _create_widgets(self,parent):
