@@ -138,9 +138,6 @@ class Dissector_builder_area(tk.Frame):
         frame.place(x = x, y = y, height = h, width = w)
         mv = MovingFrame(canvas, frame, object_type, x, y)
         
-        # save frame and frame posisiton
-        
-        
 
 if __name__ == "__main__":
     root = tk.Tk()
