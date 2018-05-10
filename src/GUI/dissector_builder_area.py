@@ -20,6 +20,7 @@ from reference_list_field import Reference_List_Window
 from packet_information_field_window import PacketInformationFieldWindow
 from expression_frame import Expression_frame
 from dissector_moving_frame import MovingFrame
+from connector import *
 
 import xml.etree.cElementTree as ET
 import xml.dom.minidom
@@ -129,15 +130,18 @@ class Dissector_builder_area(tk.Frame):
         elif object_type == 'Expression':
             frame = Expression_frame(canvas)
             h, w = 100, 200
-        elif object_type in ['Connector' , '<', '>', '<=', '>=', '==', '~=', 'And', 'Or', 'Not', 'Operand']:
+        elif object_type in ['<', '>', '<=', '>=', '==', '~=', 'And', 'Or', 'Not', 'Operand']:
             frame = tk.Label(canvas, text = object_type)
             h, w = 12, 60
 #            button.place(x = 205, y = 175, height = 12, width = 60)
 #            dnd.add_dragable(button, x, y)
+        elif object_type == 'Connector':
+            frame = Window.CreateLine(canvas)
+            Window.ChangeClick()
             
         frame.place(x = x, y = y, height = h, width = w)
         mv = MovingFrame(canvas, frame, object_type, x, y)
-        
+
 
 if __name__ == "__main__":
     root = tk.Tk()

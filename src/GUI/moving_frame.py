@@ -31,9 +31,9 @@ class MovingFrame:
         self.l = Label(self.f, bd=1, bg="#08246b", fg="white",text=title)
         self.l.pack(fill=X)
 
-        self.l.bind('<1>', self.MoveWindowStart)
-        self.f.bind('<1>', self.focus)
-        self.l.bind('<B1-Motion>', self.MoveWindow)
+        self.l.bind("PCdrag", '<1>', self.MoveWindowStart)
+        self.f.bind("PCdrag", '<1>', self.focus)
+        self.l.bind("PCdrag", '<B1-Motion>', self.MoveWindow)
         # self.f.bind('<B1-Motion>', self.MoveWindow)
         self.all.append(self)
         self.focus()
