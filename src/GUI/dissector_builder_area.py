@@ -139,6 +139,7 @@ class Dissector_builder_area(tk.Frame):
             frame = Window.CreateLine(canvas)
             Window.ChangeClick()
             
+            
         frame.place(x = x, y = y, height = h, width = w)
         mv = MovingFrame(canvas, frame, object_type, x, y)
 
