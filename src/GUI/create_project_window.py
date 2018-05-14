@@ -13,6 +13,8 @@ Created on Fri Mar  2 13:29:57 2018
 import Tkinter as tk
 import tkMessageBox
 import sys
+import os
+from console_error_view import ConsoleErrorView
 sys.path.insert(0, '../Model')
 from ProjectManager import ProjectManager
 from project_navigator_window import ProjectNavigatorWindow
@@ -67,6 +69,7 @@ class CreateProjectWindow(tk.Frame):
         project_name = self.name_entry.get()
         project_desc = self.desc_entry.get()
         a = ProjectManager.current.guiInfo(None, None, None, None, None, 2)
+
         skip = 0
 
         for i in range(len(a)):
@@ -98,3 +101,4 @@ if __name__ == "__main__":
     app = CreateProjectWindow(master=root)
     app.pack()
     app.mainloop()
+
