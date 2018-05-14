@@ -53,7 +53,7 @@ class Dissector_builder_area(tk.Frame):
         
         #whats inside folders
         for i, item in enumerate(field_items):
-            dnd = Palette_drag_and_drop() #Should be in for loop, so each has their on dnd instance
+            dnd = Palette_drag_and_drop() #Should be in for loop, so each has their own dnd instance
             button = tk.Button(cf1.interior, text = item)
             button.grid(row = i/2, column = i%2)
             dnd.add_dragable(button, 0, 0, self)

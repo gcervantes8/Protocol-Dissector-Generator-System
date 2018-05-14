@@ -16,6 +16,9 @@ class DissectorScriptWindow(tk.Frame):
     def dropdown_change(self,*args):
         print(self.dissector_format.get())
 
+    def generate_click(self):
+        print('Generate Script Clicked')
+        
     def init_window(self):
 
         #root.wm_title('Dissector Script')
@@ -44,7 +47,7 @@ class DissectorScriptWindow(tk.Frame):
         save_location.insert(0,"Local File System Path")
         tk.Button(self.root, text="Browse",command = self.browse_project).grid(column = 2, row = 3)
 
-        tk.Button(self.root,text = 'Generate').grid(column = 2 , row = 4)
+        tk.Button(self.root,text = 'Generate', command=self.generate_click).grid(column = 2 , row = 4)
         tk.Button(self.root,text = 'Cancel').grid(column = 3 , row = 4)
 
     def __init__(self, parent):
