@@ -29,21 +29,23 @@ import xml.dom.minidom
 
 class Dissector_builder_area(tk.Frame):
     
-    def __init__(self, master=None):
+    def __init__(self, master = None):
         
         self.root = master
         
-        master.title("Dissector Builder Area")
-        tk.Frame.__init__(self)
-        self.pack()
+#        master.title("Dissector Builder Area")
+        tk.Frame.__init__(self, master)
+#        self.pack()
         self._create_widgets()
     
     def create_palette(self, root):
         palette_frame = tk.Frame(root)
         
         cf1 = Palette_frame(palette_frame, text = "Field", interior_padx = 6)
+        self.cf1 = cf1
         cf1.pack()
         cf2 = Palette_frame(palette_frame, text = "Construct", interior_padx = 6)
+        self.cf2 = cf2
         cf2.pack()
     
     
@@ -76,7 +78,7 @@ class Dissector_builder_area(tk.Frame):
         canvas = tk.Canvas(self, width=1050, height=550)
         self.canvas = canvas
 #        canvas.pack(expand=1, fill=tk.BOTH)
-        canvas.grid(row = 0, column = 0)
+        canvas.grid(row = 1, column = 1)
 #        palette = Palette_frame(self)
         palette = self.create_palette(self)
         palette_width = 190

@@ -11,8 +11,8 @@ class Raw_data_window(MovingFrame):
 
     def __init__(self, parent):
         self.root = parent
-        mv = MovingFrame(self.root,"Raw Data View",500,450,300,200)
-        self._create_widgets(mv.f)
+        self.mv = MovingFrame(self.root,"Raw Data View",500,450,300,200)
+        self._create_widgets(self.mv.f)
 
     def _create_widgets(self,parent):
         # Frame

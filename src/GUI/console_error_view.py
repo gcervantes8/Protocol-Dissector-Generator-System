@@ -17,7 +17,7 @@ from moving_frame import MovingFrame
 class ConsoleErrorView(MovingFrame):
     def __init__(self, parent):
         self.root = parent
-        mv = MovingFrame(self.root,"Console Error View",0,450,500,200)
+        self.mv = MovingFrame(self.root,"Console Error View",0,450,500,200)
 
        # root.title("Console Errors")
 
@@ -28,7 +28,7 @@ class ConsoleErrorView(MovingFrame):
         # h = h/2
         # self.root.geometry("600x100+%d+%d" % (w-100, h-100))
 
-        self._create_widgets(mv.f)
+        self._create_widgets(self.mv.f)
 
     def _create_widgets(self,parent):
         frame1 = tk.Frame(parent)

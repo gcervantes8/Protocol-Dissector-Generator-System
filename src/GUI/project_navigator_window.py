@@ -27,7 +27,7 @@ class ProjectNavigatorWindow(MovingFrame):
 
         frame1 = tk.Frame(parent)
         frame1.pack(side=tk.LEFT)
-        a = ProjectManager.current.guiInfo(None,None,None,None,None,2)
+        a = ProjectManager.current.guiInfo(None, None, None, None, None, 2)
 
         self.ProjectButtons = []
         for i in range(len(a)):
@@ -41,7 +41,7 @@ class ProjectNavigatorWindow(MovingFrame):
 
     def __init__(self, parent):
         self.root = parent
-        mv = MovingFrame(self.root,"Project Navigator",0,100,150,200)
+        self.mv = MovingFrame(self.root, "Project Navigator", 0, 100, 150, 200)
         # block to control where window opens
         # w = self.root.winfo_screenwidth()
         # h = self.root.winfo_screenheight()
@@ -49,7 +49,7 @@ class ProjectNavigatorWindow(MovingFrame):
         # h = h/2
         # self.root.geometry("150x150+%d+%d" % (w-75, h-200))
 
-        self._create_widgets(mv.f)
+        self._create_widgets(self.mv.f)
 
 
 if __name__ == "__main__":

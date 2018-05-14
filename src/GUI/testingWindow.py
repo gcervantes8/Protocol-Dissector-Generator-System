@@ -24,24 +24,31 @@ class MainWindow(tk.Frame):
     def init_window(self):
         self.root.deiconify()
         menu = MenuWindow(self.root)
-        menu.pack()
+        menu.place(x = 100, y = 20, height = 100, width = 2000)
+#        menu.pack()
         #Need to be moving frames
         dba = Dissector_builder_area(self.root)
-        dba.pack()
+        dba.place(x = 400, y = 60, height = 550, width = 2000)
+#        dba.pack()
         psa = PacketStreamAreaWindow(self.root)
-        psa.pack()
+        psa.place(x = 100, y = 700, height = 550, width = 1050)
+#        psa.pack()
         #READY
-        ProjectNavigatorWindow(self.root)
-        Dissected_stream_window(self.root)
-        Raw_data_window(self.root)
-        ConsoleErrorView(self.root)
+        proj_nav = ProjectNavigatorWindow(self.root)
+        proj_nav.mv.f.place(x = 0, y = 60, height = 400, width = 200)
+        stream_window = Dissected_stream_window(self.root)
+        stream_window.mv.f.place(x = 0, y = 600, height = 200, width = 350)
+        raw_data_w = Raw_data_window(self.root)
+        raw_data_w.mv.f.place(x = 350, y = 600, height = 200, width = 350)
+        console_error_window = ConsoleErrorView(self.root)
+        console_error_window.mv.f.place(x = 700, y = 600, height = 200, width = 350)
 
 
 
 
     def init_launcher(self):
         self.launcher = tk.Toplevel(self.root)
-        Workspace_save_window(self,self.launcher)
+        Workspace_save_window(self, self.launcher)
 
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
