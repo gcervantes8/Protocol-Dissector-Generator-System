@@ -16,7 +16,7 @@ class Dissector(object):
         host_platform = platform.system()
 
         if(host_platform == 'Windows'):
-            subprocess.call('cd C:\\Program Files\\Wireshark && tshark.exe -r file2.pcap -T json  ', shell = True)
+            subprocess.call('cd C:\\Program Files\\Wireshark && tshark.exe -X lua_script:LUA_script.lua -r icmp.pcap -T pdml > out.xml  ', shell = True)
         elif(host_platform == 'Linux'):
             print('Linux Method')
             subprocess.call('tshark -T',shell=True)
@@ -25,21 +25,19 @@ class Dissector(object):
 
     def get_dissector_scripts(self,path):
         print("X")
+
+
     def create_dissector_script(self, xml_string):
         
         xml_tree = ET.ElementTree(ET.fromstring(xml_string))
-#        xml_tree = ET.parse(xml_file)
         root = xml_tree.getroot()
-        
         lua_script = ""
         start_field_item = self.find_item(root, 'StartField')
-        
         end_field_item = self.find_item(root, 'EndField')
         end_field_var = self.find_item(end_field_item, 'var').text
         if start_field_item == None:
-            return 'Error Start field found\n'
-        
-        
+            return 'Error Start field not found\n'
+
         protocol_var = self.find_item(start_field_item, 'var').text
         protocol_name = self.find_item(start_field_item, 'name').text
         protocol_desc = self.find_item(start_field_item, 'description').text
@@ -99,11 +97,7 @@ class Dissector(object):
         
         
         lua_script += 'function ' + protocol_var + '.dissector(' + self.tvbuf + ', ' + self.pktinfo + ', ' + self.root + ')\n\n'
-        #Print string when starting dissecting
-        lua_script += 'dprint2("dns.dissector called")'
-        
-        lua_script += self.pktinfo + '.cols.protocol:set("' + protocol_name + '")\n'
-        
+
         
         
         self.offset_str = 'offset'
@@ -115,7 +109,10 @@ class Dissector(object):
                 
         lua_script += lua_code
         lua_script += 'return ' + self.offset_str + '\n'
-        lua_script += 'end' #Function end
+        lua_script += 'end\n' #Function end
+        lua_script += 'local t = DissectorTable.get("ip.proto")\n'
+        lua_script += 't:add(1,c)\n'
+
         
         return lua_script
     
@@ -135,6 +132,7 @@ class Dissector(object):
                 field_size = self.find_item(field_xml, 'size').text
                 lua_code += self.temp_str + ' = ' + self.tvbuf + ':range(' + self.offset_str + ', ' + str(field_size) + ')\n'
                 lua_code += self.root + ':add(' + next_item_var + ', ' + self.temp_str + ')\n'
+                lua_code += 'offset = offset + ' + field_size + '\n'
                 print('field:')
                 print(field_xml)
                 next_xml = self.find_item(field_xml, 'next')
@@ -185,8 +183,7 @@ class Dissector(object):
 
 if __name__ == "__main__":
     dis = Dissector()
-    #dis.dissect_packets()
-#    xml_protocol = example_protocol()
+
     xml_protocol = example_ICMP_protocol()
     lua_script = dis.create_dissector_script(xml_protocol)
     print(lua_script)
