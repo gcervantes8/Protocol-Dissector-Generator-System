@@ -2,6 +2,7 @@ import platform
 import subprocess
 import xml.etree.ElementTree as ET
 from example_protocol import example_protocol
+from example_ICMP_protocol import example_ICMP_protocol
 
 class Dissector(object):
     eed = str()
@@ -15,7 +16,7 @@ class Dissector(object):
         host_platform = platform.system()
 
         if(host_platform == 'Windows'):
-            subprocess.call('cd C:\\Program Files\\Wireshark && tshark.exe -r file2.pcap -T json  ',shell = True)
+            subprocess.call('cd C:\\Program Files\\Wireshark && tshark.exe -r file2.pcap -T json  ', shell = True)
         elif(host_platform == 'Linux'):
             print('Linux Method')
             subprocess.call('tshark -T',shell=True)
@@ -48,6 +49,7 @@ class Dissector(object):
         decision_constructs = self.find_all_items(root, 'DecisionConstruct')
         lua_script += 'local ' + protocol_var + ' = Proto(\"' + protocol_name + '\", \"' + protocol_desc + '\")\n\n'
         
+        field_var_list = []
         for i, field in enumerate(fields):
 
             ref_list = self.find_item(field, 'ReferenceList')
@@ -80,9 +82,17 @@ class Dissector(object):
             protocol_desc = self.find_item(start_field_item, 'description').text
             
             
-            lua_script += 'local ' + field_var + ' = ProtoField.new("' + field_name + '", "' + field_abbrev + '", "' + field_data_type + '", "' + field_base + '", ' + ref_list_var +', ' + field_mask + '", "' + field_desc + '")\n\n'
+            lua_script += 'local ' + field_var + ' = ProtoField.new("' + field_name + '", "' + field_abbrev + '", ' + field_data_type + ', ' + ref_list_var + ', ' + field_base +', ' + field_mask + ', "' + field_desc + '")\n\n'
+            field_var_list.append(field_var)
         
+        lua_script += protocol_var + '.fields = { '
         
+        for i, field_var in enumerate(field_var_list):
+            lua_script += field_var
+            if i != len(field_var_list)-1:
+                lua_script += ', '
+        lua_script += '}\n\n'
+            
         self.tvbuf = 'tvbuf'
         self.pktinfo = 'pktinfo'
         self.root = 'root'
@@ -125,7 +135,11 @@ class Dissector(object):
                 field_size = self.find_item(field_xml, 'size').text
                 lua_code += self.temp_str + ' = ' + self.tvbuf + ':range(' + self.offset_str + ', ' + str(field_size) + ')\n'
                 lua_code += self.root + ':add(' + next_item_var + ', ' + self.temp_str + ')\n'
-                next_item_var = self.find_item(field_xml, 'next').text
+                print('field:')
+                print(field_xml)
+                next_xml = self.find_item(field_xml, 'next')
+                print(next_xml)
+                next_item_var = next_xml.text
         
             elif decision_construct_xml != None:
                 expressions = self.find_all_items(decision_construct_xml, 'Expression')
@@ -172,5 +186,10 @@ class Dissector(object):
 if __name__ == "__main__":
     dis = Dissector()
     #dis.dissect_packets()
-    lua_script = dis.create_dissector_script(example_protocol())
+#    xml_protocol = example_protocol()
+    xml_protocol = example_ICMP_protocol()
+    lua_script = dis.create_dissector_script(xml_protocol)
     print(lua_script)
+    text_file = open("LUA_script.lua", "w")
+    text_file.write(lua_script)
+    text_file.close()
