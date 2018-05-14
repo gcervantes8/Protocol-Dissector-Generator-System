@@ -16,7 +16,8 @@ import ReferenceList
 
 def example_ICMP_protocol():
     sf = StartField.StartField('ICMP', 'Example ICMP protocol')
-    
+    sf.set_dependency_pattern('Integer')
+    sf.set_dependency_protocol('Dependent protocol')
 #    sf.set_dependency_pattern('Integer')
 #    sf.set_dependency_protocol('Dependent protocol')
     
@@ -173,5 +174,6 @@ def example_ICMP_protocol():
     return protocol_structure
 
 
-
-
+if __name__ == "__main__":
+    protocol_struct = example_ICMP_protocol()
+    print(protocol_struct)

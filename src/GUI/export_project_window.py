@@ -13,6 +13,9 @@ Created on  Mar  20  2018
 import Tkinter as tk
 import tkFileDialog
 import os
+import sys
+sys.path.insert(0, '../Model')
+from export_project import ExportProjectXML
 
 
 class ExportProject(tk.Frame):
@@ -31,10 +34,15 @@ class ExportProject(tk.Frame):
             export_entry.insert(0, dirname)
 
         def export_project():
+            main_window = self.main_window
+            dba = main_window.dba
+            export_proj = ExportProjectXML()
+            export_proj.create_xml(dba)
             self.root.destroy()
 
         def cancel():
             self.root.destroy()
+
 
         desc = tk.Label(self.root, text="Export project to the local file system.", pady=10)
         desc.pack()
@@ -59,7 +67,10 @@ class ExportProject(tk.Frame):
         export_browse_button.grid(row=1, column=2, padx=10)
         export_button.grid(row=2, column=1, sticky=tk.E)
         cancel_button.grid(row=2, column=2)
-
+        
+    def set_main_window(self, main_window):
+        self.main_window = main_window
+        
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
         self.root = parent

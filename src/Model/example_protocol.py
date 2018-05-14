@@ -62,3 +62,7 @@ def example_protocol():
     protocol = Protocol.Protocol()
     protocol_structure = protocol.get_protocol_structure(sf)
     return protocol_structure
+
+if __name__ == "__main__":
+    protocol_struct = example_protocol()
+    print(protocol_struct)

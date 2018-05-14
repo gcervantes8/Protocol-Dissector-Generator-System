@@ -18,31 +18,31 @@ from dissected_stream_window import Dissected_stream_window
 from raw_data_window import Raw_data_window
 from console_error_view import ConsoleErrorView
 from dissector_builder_area import Dissector_builder_area
+from export_project_window import ExportProject
 
 class MainWindow(tk.Frame):
 
     def init_window(self):
         self.root.deiconify()
-        menu = MenuWindow(self.root)
-        menu.place(x = 100, y = 20, height = 100, width = 2000)
-#        menu.pack()
+        
+        self.menu = MenuWindow(self.root, self)
+        self.menu.place(x = 100, y = 20, height = 100, width = 2000)
         #Need to be moving frames
-        dba = Dissector_builder_area(self.root)
-        dba.place(x = 400, y = 60, height = 550, width = 2000)
-#        dba.pack()
-        psa = PacketStreamAreaWindow(self.root)
-        psa.place(x = 100, y = 700, height = 550, width = 1050)
-#        psa.pack()
-        #READY
+        self.dba = Dissector_builder_area(self.root)
+        self.dba.place(x = 500, y = 60, height = 550, width = 2000)
+        self.psa = PacketStreamAreaWindow(self.root)
+        self.psa.place(x = 100, y = 700, height = 550, width = 1050)
+        
         proj_nav = ProjectNavigatorWindow(self.root)
-        proj_nav.mv.f.place(x = 0, y = 60, height = 400, width = 200)
+        proj_nav.mv.f.place(x = 0, y = 60, height = 500, width = 200)
         stream_window = Dissected_stream_window(self.root)
         stream_window.mv.f.place(x = 0, y = 600, height = 200, width = 350)
         raw_data_w = Raw_data_window(self.root)
         raw_data_w.mv.f.place(x = 350, y = 600, height = 200, width = 350)
         console_error_window = ConsoleErrorView(self.root)
         console_error_window.mv.f.place(x = 700, y = 600, height = 200, width = 350)
-
+        
+        
 
 
 
