@@ -8,7 +8,7 @@ class Palette_frame(Frame):
     def __init__(self, master, text = None, borderwidth = 2, width = 0, height = 16, interior_padx = 0, interior_pady = 8,
                  background = None, caption_separation = 4, caption_font = None, caption_builder = None, icon_x = 5):
         Frame.__init__(self, master)
-#        master.title("Palette")
+        
         self._is_opened = False
 
         self._interior_padx = interior_padx
@@ -27,14 +27,14 @@ class Palette_frame(Frame):
         self._height = height
         self._width = width
 
-        self._containerFrame = Frame(self, borderwidth=borderwidth, width=width, height=height, relief=RIDGE,
+        self._containerFrame = Frame(self, borderwidth=borderwidth, width=width, height=height, relief = RIDGE,
                                      background=background)
         self._containerFrame.pack(expand=True, fill=X, pady=(containerFrame_pady, 0))
 
         self.interior = Frame(self._containerFrame, background=background)
 
-        self._collapseButton = Label(self, borderwidth=0, image=self._iconOpen, relief=RAISED)
-        self._collapseButton.place(in_=self._containerFrame, x=icon_x, y=-(height_of_icon // 2), anchor=N + W,
+        self._collapseButton = Label(self, borderwidth=0, image = self._iconOpen, relief = RAISED)
+        self._collapseButton.place(in_=self._containerFrame, x=icon_x, y=-(height_of_icon // 2), anchor= N + W,
                                    bordermode="ignore")
         self._collapseButton.bind("<Button-1>", lambda event: self.toggle())
 
