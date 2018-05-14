@@ -18,7 +18,6 @@ from dissected_stream_window import Dissected_stream_window
 from raw_data_window import Raw_data_window
 from console_error_view import ConsoleErrorView
 from dissector_builder_area import Dissector_builder_area
-from export_project_window import ExportProject
 
 class MainWindow(tk.Frame):
 
