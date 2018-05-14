@@ -33,6 +33,7 @@ class MainWindow(tk.Frame):
         self.psa.place(x = 100, y = 700, height = 550, width = 1050)
         
         proj_nav = ProjectNavigatorWindow(self.root)
+        ProjectNavigatorWindow.current = proj_nav
         proj_nav.mv.f.place(x = 0, y = 60, height = 500, width = 200)
         stream_window = Dissected_stream_window(self.root)
         stream_window.mv.f.place(x = 0, y = 600, height = 200, width = 350)

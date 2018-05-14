@@ -11,9 +11,13 @@ Created on Fri Mar  2 13:29:57 2018
 """
 
 import Tkinter as tk
+import tkMessageBox
 import sys
+import os
+from console_error_view import ConsoleErrorView
 sys.path.insert(0, '../Model')
 from ProjectManager import ProjectManager
+from project_navigator_window import ProjectNavigatorWindow
 
 
 class CreateProjectWindow(tk.Frame):
@@ -64,9 +68,19 @@ class CreateProjectWindow(tk.Frame):
         print('Create button clicked')
         project_name = self.name_entry.get()
         project_desc = self.desc_entry.get()
-        ProjectManager.current.guiInfo(None,None,project_name,project_desc,None,None)
-        
-        print("Project name: " + project_name + "\n Project description: " + project_desc)
+        a = ProjectManager.current.guiInfo(None, None, None, None, None, 2)
+
+        skip = 0
+
+        for i in range(len(a)):
+            if((os.path.splitext(a[i])[0]) == project_name):
+                tkMessageBox.showerror("Project already made", "Project with this name already exist")
+                skip = 1
+        if skip == 0:
+            ProjectManager.current.guiInfo(None,None,project_name,project_desc,None,None)
+
+            print("Project name: " + project_name + "\n Project description: " + project_desc)
+            ProjectNavigatorWindow.current.add_button(project_name)
         self.root.destroy()
          
     #Function to be called when cancel button is clicked
@@ -87,3 +101,4 @@ if __name__ == "__main__":
     app = CreateProjectWindow(master=root)
     app.pack()
     app.mainloop()
+
