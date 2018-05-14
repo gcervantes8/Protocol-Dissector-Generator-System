@@ -14,7 +14,7 @@ class Project(object):
             return self.desc
 
         def setDesc(self, desc):
-            self.path = desc
+            self.desc = desc
 
         def setName(self, name):
             self.name = name
@@ -27,9 +27,11 @@ class Project(object):
 
         def createProject(self):
             name = self.name
+            desc = self.desc
             dirPath = Workspace.current.getPath()
             xml = "<myxmldata/>"
             f = open(dirPath +"/"+name+".xml", "wb")
+            f.write("<!--" + desc + "-->")
             f.write(xml)
             f.close()
 
