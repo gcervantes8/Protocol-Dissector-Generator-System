@@ -14,6 +14,7 @@ import Tkinter as tk
 import sys
 sys.path.insert(0, '../Model')
 from ProjectManager import ProjectManager
+from project_navigator_window import ProjectNavigatorWindow
 
 
 class CreateProjectWindow(tk.Frame):
@@ -67,6 +68,7 @@ class CreateProjectWindow(tk.Frame):
         ProjectManager.current.guiInfo(None,None,project_name,project_desc,None,None)
         
         print("Project name: " + project_name + "\n Project description: " + project_desc)
+        ProjectNavigatorWindow.current.add_button(project_name+".xml")
         self.root.destroy()
          
     #Function to be called when cancel button is clicked
