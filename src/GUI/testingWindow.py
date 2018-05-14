@@ -18,30 +18,32 @@ from dissected_stream_window import Dissected_stream_window
 from raw_data_window import Raw_data_window
 from console_error_view import ConsoleErrorView
 from dissector_builder_area import Dissector_builder_area
+from export_project_window import ExportProject
 
 class MainWindow(tk.Frame):
 
     def init_window(self):
         self.root.deiconify()
-        menu = MenuWindow(self.root)
-        menu.pack()
+        self.menu = MenuWindow(self.root, self)
+        self.menu.pack()
         #Need to be moving frames
-        dba = Dissector_builder_area(self.root)
-        dba.pack()
-        psa = PacketStreamAreaWindow(self.root)
-        psa.pack()
+        self.dba = Dissector_builder_area(self.root)
+        self.dba.pack()
+        self.psa = PacketStreamAreaWindow(self.root)
+        self.psa.pack()
         #READY
         ProjectNavigatorWindow(self.root)
         Dissected_stream_window(self.root)
         Raw_data_window(self.root)
         ConsoleErrorView(self.root)
-
-
+#        export_project = ExportProject()
+#        export_project.set_main_window(self)
 
 
     def init_launcher(self):
         self.launcher = tk.Toplevel(self.root)
         Workspace_save_window(self,self.launcher)
+        
 
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
