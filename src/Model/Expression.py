@@ -20,6 +20,10 @@ class Expression():
         print('set relational ops')
         print(relational_operators)
         
+    def set_relational_operators_and_operands(self, relational_operators, operands):
+        self.set_relational_operators(relational_operators)
+        self.set_operands(operands)
+        
     #Returns construct if has saved construct
     def get_relational_operators(self):
         try:
