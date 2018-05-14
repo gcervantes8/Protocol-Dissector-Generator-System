@@ -2,6 +2,7 @@
 """
 Created on Sat Mar 10 16:31:20 2018
 @author: Gerardo Cervantes
+	 Christopher Soto
 """
 
 import Tkinter as tk
@@ -26,7 +27,10 @@ class Raw_data_window(MovingFrame):
         # Main text
         self.text = tk.Text(text_frame)
         self.text.pack()
-        self.add_text("RAW DATA")
+        self.add_text("")
+	f = open("../test.txt", "r")
+	for line in f:
+	    self.add_text(line)
 
         # Scroll bar
         # self.scrollbar = tk.Scrollbar(main_window, command=self.text.yview)
@@ -36,6 +40,7 @@ class Raw_data_window(MovingFrame):
     # Adds text to the dissected stream window, header and text are both str
     def add_text(self, text):
         self.text.insert("end", text)
+	
 
 
 if __name__ == "__main__":

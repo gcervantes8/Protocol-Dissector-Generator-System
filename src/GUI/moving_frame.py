@@ -16,8 +16,8 @@ class MovingFrame:
         dy = event.y_root - self.move_lasty
         self.move_lastx = event.x_root
         self.move_lasty = event.y_root
-        self.x = clamp(0, 640-200, self.x + dx) # should depend on
-        self.y = clamp(0, 480-200, self.y + dy) # actual size here
+        self.x = clamp(0, 1640-200, self.x + dx) # should depend on
+        self.y = clamp(0, 1480-200, self.y + dy) # actual size here
         self.f.place_configure(x=self.x, y=self.y)
 
     def __init__(self, root, title, x, y,w,h):
@@ -31,9 +31,9 @@ class MovingFrame:
         self.l = Label(self.f, bd=1, bg="#08246b", fg="white",text=title)
         self.l.pack(fill=X)
 
-        self.l.bind("PCdrag", '<1>', self.MoveWindowStart)
-        self.f.bind("PCdrag", '<1>', self.focus)
-        self.l.bind("PCdrag", '<B1-Motion>', self.MoveWindow)
+        self.l.bind('<1>', self.MoveWindowStart)
+        self.f.bind( '<1>', self.focus)
+        self.l.bind( '<B1-Motion>', self.MoveWindow)
         # self.f.bind('<B1-Motion>', self.MoveWindow)
         self.all.append(self)
         self.focus()

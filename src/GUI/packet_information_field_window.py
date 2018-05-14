@@ -16,7 +16,7 @@ class PacketInformationFieldWindow(tk.Frame):
         self.column = 0
         self.row +=1
         self.add_button.grid(column = 3,row = self.row)
-        
+        self.place(height=80 + ((self.row - 1) * 19))
     def init_window(self):
 
         frame = tk.Frame(self)
