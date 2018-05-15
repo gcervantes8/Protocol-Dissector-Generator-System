@@ -15,6 +15,7 @@ from create_project_window import CreateProjectWindow
 from export_project_window import ExportProject
 from import_project_window import ImportProject
 from dissector_script_window import DissectorScriptWindow
+from dissector_selector_popup import DissectorSelector
 
 
 from organize_views import OrganizeViews
@@ -93,7 +94,8 @@ class MenuWindow(tk.Frame):
         else:
             print("No root set in menu.py")
     def dissect_click(self):
-        print "Dissect"
+        popup = tk.Toplevel(self.root)
+        popup = DissectorSelector(self.root)
     def init_window(self):
 
         create_btn = tk.Button(self, text='Create Project', command=self.create_click)
