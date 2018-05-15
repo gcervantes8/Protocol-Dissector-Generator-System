@@ -56,7 +56,7 @@ class Expression():
                 
         lower_case_logical_ops = []
         for op in logical_operators:
-            lower_case_logical_ops.append(op)
+            lower_case_logical_ops.append(op.lower())
         self.logical_operators = lower_case_logical_ops
         
     def get_logical_operators(self):        
