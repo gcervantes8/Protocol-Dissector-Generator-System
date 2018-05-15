@@ -11,6 +11,8 @@ from Tkinter import *
 import Tkinter as tk
 from ttk import *
 from tkFileDialog import *
+from src.Model.Dissector import Dissector
+from src.Model.example_ICMP_protocol import example_ICMP_protocol
 
 class DissectorScriptWindow(tk.Frame):
     def _create_widgets(self):
@@ -67,7 +69,13 @@ class DissectorScriptWindow(tk.Frame):
         print(self.dissector_format.get())
  
     def generate_click(self):
-        print('Generate Script Clicked')
+        dis = Dissector()
+        xml = example_ICMP_protocol()
+        script =dis.create_dissector_script(xml)
+        text_file = open("LUA_script.lua", "w")
+        text_file.write(script)
+        text_file.close()
+        self.root.destroy()
     
     def click_cancel(self):
         self.root.destroy()

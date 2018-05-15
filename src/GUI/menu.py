@@ -95,7 +95,7 @@ class MenuWindow(tk.Frame):
             print("No root set in menu.py")
     def dissect_click(self):
         popup = tk.Toplevel(self.root)
-        popup = DissectorSelector(self.root)
+        popup = DissectorSelector(popup)
     def init_window(self):
 
         create_btn = tk.Button(self, text='Create Project', command=self.create_click)

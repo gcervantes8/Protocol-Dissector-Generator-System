@@ -16,7 +16,7 @@ class Dissector(object):
         host_platform = platform.system()
 
         if(host_platform == 'Windows'):
-            subprocess.call('cd C:\\Program Files\\Wireshark && tshark.exe -X lua_script:LUA_script.lua -r icmp.pcap -T pdml > out.xml  ', shell = True)
+            subprocess.call('tshark -X lua_script:LUA_script.lua -r icmp.pcap -T pdml > out.xml  ', shell = True)
         elif(host_platform == 'Linux'):
             print('Linux Method')
             subprocess.call('tshark -T',shell=True)

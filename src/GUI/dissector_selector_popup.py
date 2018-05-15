@@ -10,7 +10,7 @@ Created on Fri Mar  2 13:29:57 2018
 """
 
 import Tkinter as tk
-
+from src.Model.Dissector import Dissector
 class DissectorSelector(tk.Frame):
 
     # Function create frame with label on left, and entry on the right
@@ -26,14 +26,9 @@ class DissectorSelector(tk.Frame):
 
         return main_frame, entry
 
-    def __init__(self, master=None):
+    def __init__(self, master):
         self.root = master
         master.title("Dissector Selector")
-	w = self.root.winfo_screenwidth()
-        h = self.root.winfo_screenheight()
-        w = w/2
-        h = h/2
-        self.root.geometry("400x90+%d+%d" % (w-150, h-100))
         tk.Frame.__init__(self)
         self.pack()
         self._create_widgets()
@@ -55,7 +50,7 @@ class DissectorSelector(tk.Frame):
 
         # Create frame and add 2 buttons to it.
         buttons_frame2 = tk.Frame(main_window)
-        tk.Button(buttons_frame2, text="Select", command=self._create_button_clicked).pack(side="left")
+        tk.Button(buttons_frame2, text="Select", command=self._select_button_clicked).pack(side="left")
 
 
         # Specify location of widgets on main window
@@ -65,7 +60,9 @@ class DissectorSelector(tk.Frame):
         buttons_frame2.grid(row=2, column=1)
 
     # Function to be called when create button is clicked
-    def _create_button_clicked(self):
+    def _select_button_clicked(self):
+        dis = Dissector()
+        dis.dissect_packets('LUA_script')
         self.root.destroy()
 
 
