@@ -12,7 +12,8 @@ Created on Fri Mar  2 13:29:57 2018
 import Tkinter as tk
 import sys
 sys.path.insert(0, '../Model/')
-import Dissector
+from Dissector import Dissector
+from parse_pdml_xml import parse_pdml_xml
 
 class DissectorSelector(tk.Frame):
 
@@ -36,7 +37,8 @@ class DissectorSelector(tk.Frame):
         self.pack()
         self._create_widgets()
 
-
+    def set_main_window(self, main_window):
+        self.main_window = main_window
     # Adds all the widgets.
     def _create_widgets(self):
         # Main window
@@ -65,7 +67,23 @@ class DissectorSelector(tk.Frame):
     # Function to be called when create button is clicked
     def _select_button_clicked(self):
         dis = Dissector()
-        dis.dissect_packets('LUA_script')
+        pdml_xml = dis.dissect_packets()
+        print(pdml_xml)
+        
+        field_name_items, field_items_values, headers, dissected_values = parse_pdml_xml(pdml_xml)
+        
+        packet_stream = self.main_window.psa
+        
+#        packet_stream.pcap = 
+        packet_stream.add_headers(field_name_items)
+        packet_stream._display_packets(field_items_values, packet_stream)
+        #populate stream window
+        stream_window = self.main_window.stream_window
+        for i, header in enumerate(headers):
+            stream_window.add_text(header, dissected_values[i])
+            
+        print('headers')
+        print(headers)
         self.root.destroy()
 
 

@@ -9,29 +9,31 @@ Created on  Mar  15  2018
 
 import Tkinter as tk
 class PacketStreamAreaWindow(tk.Frame):
-    pcap = [['1', '11.2', '192.1.1', '192.1.2', 'HTTP', "HELLO"], ['2', '11.4', '192.1.1', '192.1.2', 'TCP', "WORLD"]]
+#    pcap = [['1', '11.2', '192.1.1', '192.1.2', 'HTTP', "HELLO"], ['2', '11.4', '192.1.1', '192.1.2', 'TCP', "WORLD"]]
+    pcap = []
     def _display_packets(self, PCAP,position):
         col = 0
-        row = 1
+        row = 0
         for packet in PCAP:
-            color="red"#this is the line we will change to change color packet.color
-            tk.Frame(position, bg=color).grid(row=row, column=0, columnspan=6, sticky='nesw')
+            color="green"#this is the line we will change to change color packet.color
+            #tk.Frame(position,bg=color).grid(row=ro, column=0, columnspan=6, sticky='nesw')
             for val in packet:
-                tk.Label(position, text=val,bg=color).grid(column=col, row=row)
+                tk.Label(position, text=val[:10],bg=color).grid(column=row, row=col+1)
                 col += 1
             row += 1
             col = 0
 
     def init_window(self):
        # self.wm_title('Packet Stream Area View')
-        tk.Label(self,text='No .').grid(column=0,row=0)
-        tk.Label(self,text='Time').grid(column=1, row=0)
-        tk.Label(self,text='Source').grid(column=2, row=0)
-        tk.Label(self,text='Destination').grid(column=3, row=0)
-        tk.Label(self,text='Protocol').grid(column=4, row=0)
-        tk.Label(self,text='Info').grid(column=5, row=0)
-        self._display_packets(self.pcap,self)
+       headers = ['TBD', 'TBD', 'TBD', 'TBD']
+       self.add_headers(headers)
+#       self._display_packets(self.pcap, self)
 
+    def add_headers(self, headers):
+        for i, header in enumerate(headers):
+            tk.Label(self,text = header,width = 30).grid(column=i,row=0)
+        self._display_packets(self.pcap,self)
+        
     def hide_window(self):
         self.pack_forget()
 
