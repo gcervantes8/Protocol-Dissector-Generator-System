@@ -30,7 +30,7 @@ class ProjectNavigatorWindow(MovingFrame):
         self.button_amount = 0
         self.ProjectButtons = []
         for i in range(len(a)):
-            self.add_button(a[i])
+            self.add_button(os.path.splitext(a[i])[0])
 
     def add_button(self, button_name):
         button = tk.Button(self.frame1, command = lambda: self.continue_button_clicked(button_name), text = button_name, padx = 10)
