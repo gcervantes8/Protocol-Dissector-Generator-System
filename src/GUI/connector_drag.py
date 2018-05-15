@@ -1,12 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun May 13 13:46:28 2018
-
-@author: ZDeztroyerz
-"""
-
-# -*- coding: utf-8 -*-
-"""
 Created on Wed Mar 21 07:35:49 2018
 
 @author: Jerry C

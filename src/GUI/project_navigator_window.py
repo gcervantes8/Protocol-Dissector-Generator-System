@@ -33,14 +33,14 @@ class ProjectNavigatorWindow(MovingFrame):
             self.add_button(a[i])
 
     def add_button(self, button_name):
-        button = tk.Button(self.frame1, command = self.continue_button_clicked, text = button_name, padx = 10)
+        button = tk.Button(self.frame1, command = lambda: self.continue_button_clicked(button_name), text = button_name, padx = 10)
         self.ProjectButtons.append(button)
         self.ProjectButtons[self.button_amount].grid(row=self.button_amount+1, column=0, padx=10)
         self.button_amount += 1
         return button
-    def continue_button_clicked(self):
+    def continue_button_clicked(self,button):
         #Insert Opening project functionality
-        print('Continue button click')
+        ProjectManager.current.guiInfo(None, None, button, None, None, None)
 
 
     def __init__(self, parent):

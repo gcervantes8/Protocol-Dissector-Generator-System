@@ -46,7 +46,7 @@ class CreateProjectWindow(tk.Frame):
         project_label = tk.Label(main_window, text= "Create a new project")
         
         #Create frame with label and entry, and add to main_window
-        name_frame, self.name_entry = self._create_frame_with_entry(main_window, "Project")
+        name_frame, self.name_entry = self._create_frame_with_entry(main_window, "Project       ")
         desc_frame, self.desc_entry = self._create_frame_with_entry(main_window, "Description")
         
         #Create frame and add 2 buttons to it.
@@ -56,10 +56,10 @@ class CreateProjectWindow(tk.Frame):
         
         
         #Specify location of widgets on main window
-        project_label.grid(row = 0, column = 0)
-        name_frame.grid(row = 1, column = 0)
-        desc_frame.grid(row = 2, column = 0)
-        buttons_frame.grid(row = 3, column = 0)
+        project_label.grid(row = 0, column = 0, padx = 10)
+        name_frame.grid(row = 1, column = 0, padx = 10, pady = 5)
+        desc_frame.grid(row = 2, column = 0, padx = 10, pady = 5)
+        buttons_frame.grid(row = 3, column = 0, padx = 10)
     
     
     #Function to be called when create button is clicked
@@ -85,7 +85,6 @@ class CreateProjectWindow(tk.Frame):
          
     #Function to be called when cancel button is clicked
     def _cancel_button_clicked(self):
-        
         print('Cancel button clicked')
         self.root.destroy()
 
@@ -93,6 +92,11 @@ class CreateProjectWindow(tk.Frame):
         tk.Frame.__init__(self)
         self.root = master
         self.root.title("New Project")
+	w = self.root.winfo_screenwidth()
+        h = self.root.winfo_screenheight()
+        w = w/2
+        h = h/2
+        self.root.geometry("300x120+%d+%d" % (w-150, h-100))
         self._create_widgets()
 
 

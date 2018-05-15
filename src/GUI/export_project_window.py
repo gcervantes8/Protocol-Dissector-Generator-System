@@ -81,7 +81,7 @@ class ExportProject(tk.Frame):
         h = self.root.winfo_screenheight()
         w = w/2
         h = h/2
-        self.root.geometry("400x150+%d+%d" % (w-150, h-100))
+        self.root.geometry("500x150+%d+%d" % (w-200, h-100))
 
         self._create_widgets()
 

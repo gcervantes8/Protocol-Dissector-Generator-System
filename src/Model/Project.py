@@ -7,8 +7,8 @@ class Project(object):
         name = str()
         desc = str()
 
-        def getPath(self):
-            return self.path
+        def getName(self):
+            return self.name
 
         def getDesc(self):
             return self.desc
@@ -19,11 +19,11 @@ class Project(object):
         def setName(self, name):
             self.name = name
 
-        def loadProject(xml):
-            if xml is None:
+        def loadProject(self, name):
+            if name is None:
                 return
             else:
-                return Project('', '')
+                print name + " this is current project"
 
         def createProject(self):
             name = self.name
@@ -31,7 +31,6 @@ class Project(object):
             dirPath = Workspace.current.getPath()
             xml = "<myxmldata/>"
             f = open(dirPath +"/"+name+".xml", "wb")
-            f.write("<!--" + desc + "-->")
+            f.write("<!-- " + desc + " -->")
             f.write(xml)
             f.close()
-

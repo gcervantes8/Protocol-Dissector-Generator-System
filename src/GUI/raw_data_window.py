@@ -28,7 +28,7 @@ class Raw_data_window(MovingFrame):
         self.text = tk.Text(text_frame)
         self.text.pack()
         self.add_text("")
-	f = open("../test.txt", "r")
+	f = open("../Model/test.txt", "r")
 	for line in f:
 	    self.add_text(line)
 

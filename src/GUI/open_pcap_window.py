@@ -29,6 +29,11 @@ class OpenPcapWindow(tk.Frame):
     def __init__(self, master=None):
         self.root = master
         master.title("PCAP")
+	w = self.root.winfo_screenwidth()
+        h = self.root.winfo_screenheight()
+        w = w/2
+        h = h/2
+        self.root.geometry("400x90+%d+%d" % (w-150, h-100))
         tk.Frame.__init__(self)
         self.pack()
         self._create_widgets()
@@ -57,7 +62,7 @@ class OpenPcapWindow(tk.Frame):
         project_label.grid(row=0, column=0)
         name_frame.grid(row=1, column=0)
         buttons_frame1.grid(row=1, column=1)
-        buttons_frame2.grid(row=3, column=0)
+        buttons_frame2.grid(row=2, column=1)
 
     # Function to be called when create button is clicked
     def _create_button_clicked(self):

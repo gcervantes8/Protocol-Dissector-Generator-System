@@ -131,9 +131,9 @@ class OrganizeViews(tk.Frame):
         console_area_off.grid(row=7, column=1)
         console_area_on.grid(row=7, column=2)
 
-        default_button.grid(row=8, column=1, pady=20)
-        confirm_button.grid(row=8, column=2)
-        cancel_button.grid(row=8, column=3)
+        default_button.grid(row=8, column=0, padx=20, pady=20)
+        confirm_button.grid(row=8, column=1)
+        cancel_button.grid(row=8, column=2)
 
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
