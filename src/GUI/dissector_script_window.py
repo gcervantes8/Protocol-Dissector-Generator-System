@@ -11,8 +11,10 @@ from Tkinter import *
 import Tkinter as tk
 from ttk import *
 from tkFileDialog import *
-from src.Model.Dissector import Dissector
-from src.Model.example_ICMP_protocol import example_ICMP_protocol
+import sys
+sys.path.insert(0, '../Model/')
+import Dissector
+import example_ICMP_protocol
 
 class DissectorScriptWindow(tk.Frame):
     def _create_widgets(self):

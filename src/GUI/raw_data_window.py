@@ -16,7 +16,7 @@ class Raw_data_window(MovingFrame):
         self._create_widgets(self.mv.f)
 
     def _read_raw(self):
-	self.add_text("faekfnakfnkaefnka")
+	self.text.insert("faekfnakfnkaefnka")
 	f = open("rawfile.txt", "r")
 	for line in f:
 	    self.add_text(line)

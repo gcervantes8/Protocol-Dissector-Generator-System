@@ -10,7 +10,10 @@ Created on Fri Mar  2 13:29:57 2018
 """
 
 import Tkinter as tk
-from src.Model.Dissector import Dissector
+import sys
+sys.path.insert(0, '../Model/')
+import Dissector
+
 class DissectorSelector(tk.Frame):
 
     # Function create frame with label on left, and entry on the right
