@@ -92,7 +92,8 @@ class MenuWindow(tk.Frame):
 
         else:
             print("No root set in menu.py")
-            
+    def dissect_click(self):
+        print "Dissect"
     def init_window(self):
 
         create_btn = tk.Button(self, text='Create Project', command=self.create_click)
@@ -114,6 +115,8 @@ class MenuWindow(tk.Frame):
         org_views_btn.grid(column=7, row=0)
         open_pcap_btn = tk.Button(self, text='Open PCAP', command=self.pcap_click)
         open_pcap_btn.grid(column=8, row=0)
+        dissect_btn = tk.Button(self,text = 'Apply Dissector',command=self.dissect_click)
+        dissect_btn.grid(column=9,row=0)
 
     def __init__(self, parent, main_window):
         tk.Frame.__init__(self, parent)
