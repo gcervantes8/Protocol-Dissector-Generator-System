@@ -21,7 +21,7 @@ class ProjectManager():
                 project.createProject()
                 Project.current = project
             else:
-                print ("Invalid2")
+                project.loadProject(project_name)
                 return
         #elif(layout != None):
          #   Project.getLayout()
