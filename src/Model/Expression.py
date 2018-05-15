@@ -53,7 +53,11 @@ class Expression():
                 if not op in ['And', 'Or', 'Not']:
                     self.logical_operators = None
                     return
-        self.logical_operators = logical_operators
+                
+        lower_case_logical_ops = []
+        for op in logical_operators:
+            lower_case_logical_ops.append(op)
+        self.logical_operators = lower_case_logical_ops
         
     def get_logical_operators(self):        
         try:
