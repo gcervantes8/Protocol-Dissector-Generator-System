@@ -16,10 +16,10 @@ class Raw_data_window(MovingFrame):
         self._create_widgets(self.mv.f)
 
     def _read_raw(self):
-	self.text.insert("faekfnakfnkaefnka")
 	f = open("rawfile.txt", "r")
 	for line in f:
-	    self.add_text(line)
+	    self.text.insert("end", line)
+	f.close()
 
     def _create_widgets(self,parent):
         # Frame
@@ -33,7 +33,7 @@ class Raw_data_window(MovingFrame):
         # Main text
         self.text = tk.Text(text_frame)
         self.text.pack()
-	self.add_text("test")
+
         # Scroll bar
         # self.scrollbar = tk.Scrollbar(main_window, command=self.text.yview)
         # self.scrollbar.pack(side="right", fill="y")
