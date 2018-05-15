@@ -14,6 +14,7 @@ from sys import platform
 import os
 from tkFileDialog import askopenfilename
 from raw_data_window import *
+import subprocess
 
 class OpenPcapWindow(tk.Frame):
 
@@ -78,23 +79,18 @@ class OpenPcapWindow(tk.Frame):
     def _create_button_clicked(self):
         print('Launch button clicked')
         #Workspace_name = self.name_entry.get()
-	#filen = self.filename.get()
-	if platform == "linux" or platform == "linux2":
-	    os.system("rm -f rawfile.txt")
-	    os.system("tshark -x -r " + self.filename + "> rawfile.txt")
-
-	elif platform == "win32":
-	    tsharkCall = ["tshark", "-x", "-r"]
-	    tsharkIn   = open(self.filename, "rb")
-	    tsharkOut  = open("rawfile.txt", "wb")
-
-	    tsharkProc = subprocess.Popen(tsharkCall,
-                              stdin=tsharkIn,
-                              stdout=tsharkOut, 
-                              executable="C:\\Program Files\\Wireshark\\tshark.exe")
-	X = Raw_data_window(self.root)
-	X._read_raw()
-	self.root.destroy()
+    	#filen = self.filename.get()
+    	if platform == "linux" or platform == "linux2":
+            os.system("rm -f rawfile.txt")
+    	    os.system("tshark -x -r " + self.filename + "> rawfile.txt")
+    
+    	elif platform == "win32":
+            raw_data = subprocess.check_output("tshark -x -r icmp.pcap" , shell = True)
+            self.main_window.raw_data_w.add_text(raw_data)
+        self.root.destroy()
+        
+    def set_main_window(self, main_window):
+        self.main_window = main_window
 
 
 # Function to be called when cancel button is clicked

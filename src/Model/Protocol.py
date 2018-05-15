@@ -60,7 +60,7 @@ class Protocol():
         print(pretty_xml_as_string)
         
         #Returns the non-pretty xml to prevent possible spacing errors
-        return xmlstr
+        return pretty_xml_as_string
 #        tree = ET.ElementTree(root)
 #        tree.write("filename.xml")
 #        print(xmlstr)

@@ -31,20 +31,19 @@ class MainWindow(tk.Frame):
         self.dba = Dissector_builder_area(self.root)
         self.dba.place(x = 500, y = 60, height = 550, width = 2000)
         self.psa = PacketStreamAreaWindow(self.root)
-        self.psa.place(x = 100, y = 700, height = 550, width = 1050)
+        self.psa.place(x = 100, y = 800, height = 550, width = 1050)
         
-        proj_nav = ProjectNavigatorWindow(self.root)
-        ProjectNavigatorWindow.current = proj_nav
-        proj_nav.mv.f.place(x = 0, y = 60, height = 500, width = 200)
-        stream_window = Dissected_stream_window(self.root)
-        stream_window.mv.f.place(x = 0, y = 600, height = 200, width = 350)
-        raw_data_w = Raw_data_window(self.root)
-        raw_data_w.mv.f.place(x = 350, y = 600, height = 200, width = 350)
-        console_error_window = ConsoleErrorView(self.root)
-        console_error_window.mv.f.place(x = 700, y = 600, height = 200, width = 350)
+        self.proj_nav = ProjectNavigatorWindow(self.root)
+        ProjectNavigatorWindow.current = self.proj_nav
+        self.proj_nav.mv.f.place(x = 0, y = 60, height = 500, width = 200)
+        self.stream_window = Dissected_stream_window(self.root)
+        self.stream_window.mv.f.place(x = 0, y = 600, height = 200, width = 350)
+        self.raw_data_w = Raw_data_window(self.root)
+        self.raw_data_w.mv.f.place(x = 350, y = 600, height = 200, width = 350)
+        self.console_error_window = ConsoleErrorView(self.root)
+        self.console_error_window.mv.f.place(x = 700, y = 600, height = 200, width = 350)
         
         
-
 
 
     def init_launcher(self):

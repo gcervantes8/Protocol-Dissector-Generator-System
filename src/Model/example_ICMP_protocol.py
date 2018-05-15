@@ -234,4 +234,7 @@ def example_ICMP_protocol():
 
 if __name__ == "__main__":
     protocol_struct = example_ICMP_protocol()
-    print(protocol_struct)
+    p_file = open('icmp_xml_intermediate.xml','w')
+    p_file.write(protocol_struct)
+    p_file.close()
+#    print(protocol_struct)

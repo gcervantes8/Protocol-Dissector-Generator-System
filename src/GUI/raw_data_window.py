@@ -42,6 +42,8 @@ class Raw_data_window(MovingFrame):
     # Adds text to the dissected stream window, header and text are both str
     def add_text(self, text):
         self.text.insert("end", text)
+        
+
 	
 
 

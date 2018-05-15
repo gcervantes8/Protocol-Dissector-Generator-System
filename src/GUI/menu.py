@@ -88,7 +88,9 @@ class MenuWindow(tk.Frame):
     def pcap_click(self):
         if self.root != None:
             popup = tk.Toplevel(self.root)
-            open_pcap = OpenPcapWindow(popup)
+            popup = OpenPcapWindow(popup)
+            popup.set_main_window(self.main_window)
+            
 
         else:
             print("No root set in menu.py")
