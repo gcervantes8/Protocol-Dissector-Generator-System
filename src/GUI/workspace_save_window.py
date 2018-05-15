@@ -35,6 +35,11 @@ class Workspace_save_window(tk.Frame):
         tk.Frame.__init__(self)
         self.main_win = main_win
         self.root = parent
+	w = self.root.winfo_screenwidth()
+        h = self.root.winfo_screenheight()
+        w = w/2
+        h = h/2
+	self.root.geometry("430x120+%d+%d" % (w-150, h-100))
         self.root.title("Workspace Launcher")
         self._create_widgets()
 
@@ -95,4 +100,5 @@ class Workspace_save_window(tk.Frame):
     def _cancel_button_clicked(self):
         print('Cancel button clicked')
         self.root.destroy()
+	exit()
 

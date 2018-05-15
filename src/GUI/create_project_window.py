@@ -73,7 +73,6 @@ class CreateProjectWindow(tk.Frame):
          
     #Function to be called when cancel button is clicked
     def _cancel_button_clicked(self):
-        
         print('Cancel button clicked')
         self.root.destroy()
 
