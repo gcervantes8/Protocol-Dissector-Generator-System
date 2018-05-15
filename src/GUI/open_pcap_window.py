@@ -10,6 +10,10 @@ Created on Fri Mar  2 13:29:57 2018
 """
 
 import Tkinter as tk
+from sys import platform
+import os
+from tkFileDialog import askopenfilename
+from raw_data_window import *
 
 class OpenPcapWindow(tk.Frame):
 
@@ -64,17 +68,33 @@ class OpenPcapWindow(tk.Frame):
         buttons_frame1.grid(row=1, column=1)
         buttons_frame2.grid(row=2, column=1)
 
+    def _browse_button(self):
+        tk.Tk().withdraw()
+	self.filename = askopenfilename(defaultextension=".pcap",
+                                                       filetypes=(("PCAP file", "*.pcap"),
+                                                                  ("All Files", "*.*")))
+
     # Function to be called when create button is clicked
     def _create_button_clicked(self):
         print('Launch button clicked')
-        Workspace_name = self.name_entry.get()
+        #Workspace_name = self.name_entry.get()
+	#filen = self.filename.get()
+	if platform == "linux" or platform == "linux2":
+	    os.system("rm -f rawfile.txt")
+	    os.system("tshark -x -r " + self.filename + "> rawfile.txt")
 
-    def _browse_button(self):
-        from tkFileDialog import askopenfilename
+	elif platform == "win32":
+	    tsharkCall = ["tshark", "-x", "-r"]
+	    tsharkIn   = open(self.filename, "rb")
+	    tsharkOut  = open("rawfile.txt", "wb")
 
-        tk.Tk().withdraw()
-        self.filename = askopenfilename()
-        print(self.filename)
+	    tsharkProc = subprocess.Popen(tsharkCall,
+                              stdin=tsharkIn,
+                              stdout=tsharkOut, 
+                              executable="C:\\Program Files\\Wireshark\\tshark.exe")
+	X = Raw_data_window(self.root)
+	X._read_raw()
+	self.root.destroy()
 
 
 # Function to be called when cancel button is clicked
