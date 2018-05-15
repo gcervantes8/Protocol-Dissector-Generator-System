@@ -16,7 +16,7 @@ class Dissector(object):
         host_platform = platform.system()
 
         if(host_platform == 'Windows'):
-            subprocess.call('tshark -X lua_script:LUA_script.lua -r icmp.pcap -T pdml > out.xml  ', shell = True)
+            subprocess.call('tshark -X lua_script:LUA_script.lua -r icmp.pcap -T pdml > pdml.xml  ', shell = True)
         elif(host_platform == 'Linux'):
             print('Linux Method')
             subprocess.call('tshark -T',shell=True)
@@ -199,3 +199,4 @@ if __name__ == "__main__":
     text_file = open("LUA_script.lua", "w")
     text_file.write(lua_script)
     text_file.close()
+    dis.dissect_packets()
