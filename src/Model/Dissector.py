@@ -133,10 +133,7 @@ class Dissector(object):
                 lua_code += self.temp_str + ' = ' + self.tvbuf + ':range(' + self.offset_str + ', ' + str(field_size) + ')\n'
                 lua_code += self.root + ':add(' + next_item_var + ', ' + self.temp_str + ')\n'
                 lua_code += 'offset = offset + ' + field_size + '\n'
-                print('field:')
-                print(field_xml)
                 next_xml = self.find_item(field_xml, 'next')
-                print(next_xml)
                 next_item_var = next_xml.text
         
             elif decision_construct_xml != None:
@@ -144,9 +141,21 @@ class Dissector(object):
                 for i, expr in enumerate(expressions):
                     next_vars = self.find_all_items(decision_construct_xml, 'next')
                     next_item = next_vars[i].text
-                    relational_operator = self.find_item(expr, 'RelationalOperators').text
-                    operands = self.find_item(expr, 'operands').text
-                    lua_code += 'if ' + self.temp_str + ' ' + relational_operator + ' ' + operands + ' then\n'
+                    relational_operators = self.find_all_items(expr, 'RelationalOperators')
+                    operands = self.find_all_items(expr, 'operands')
+                    logical_operators = self.find_all_items(expr, 'LogicalOperators')
+                    lua_code += 'if '
+                    for i, operand in enumerate(operands):
+                        rel_operator = relational_operators[i].text
+                        operand = operand.text
+                        if i == len(operands)-1:
+                            logical_operator_spaced = ' '
+                        else:
+                            logical_operator_spaced = ' ' + logical_operators[i].text + ' ' 
+                            
+                        lua_code += ' (' + self.temp_str + ' ' + rel_operator + ' ' + operand + ') ' + logical_operator_spaced
+                    lua_code += 'then\n'
+                    
                     if_body_code = self.write_lua_field_decisions(next_item, fields, decision_constructs, end_field_var)
                     lua_code += if_body_code + '\nend\n'
                 break

@@ -39,7 +39,7 @@ class ConsoleErrorView(MovingFrame):
 
         desc.grid(row=0, column=0)
 
-        desc.insert(tk.INSERT, "No error messages to display.")
+        desc.insert(tk.INSERT, "No error messages.")
 
 if __name__ == "__main__":
     root = tk.Tk()
