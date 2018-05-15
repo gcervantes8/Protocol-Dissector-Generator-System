@@ -4,6 +4,7 @@
 Created on  Mar  15  2018
 
 @author:    Daniel Ornelas
+	    Christopher Soto
 
 """
 from Tkinter import *

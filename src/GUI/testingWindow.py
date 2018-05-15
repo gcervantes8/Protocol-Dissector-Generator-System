@@ -59,5 +59,7 @@ class MainWindow(tk.Frame):
 if __name__ == "__main__":
     root = tk.Tk()
     root.withdraw()
+    w, h = root.winfo_screenwidth(), root.winfo_screenheight()
+    root.geometry("%dx%d+0+0" % (w, h))
     app = MainWindow(root)
     root.mainloop()
